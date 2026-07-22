@@ -226,13 +226,13 @@ After the tables and views work, walk me through building one Airtable Interface
 Important: before we start, ask me for the exact order status names we use in Qualia so the Stage options match what my processors already see.</pre>
   </div>
 
-  <h3>What the team does to keep it current</h3>
+  <h3>The rollout rule: nothing is asked of the closers</h3>
+  <p>The team already has a system — Qualia. They are never asked to maintain a second one. So the base gets <strong>built</strong> now (with a sample import, so Mike sees the dashboard working), but it doesn't get <strong>rolled out</strong> to staff until the Qualia feed (Phase 6) is filling it automatically. The first time the team sees it, it should already know everything.</p>
   <ul>
-    <li><strong>Processors:</strong> new order → add a row (2 minutes). Stage changes → update one dropdown (10 seconds). Tick earnest-money and wire-verified boxes as they happen.</li>
-    <li><strong>Front desk / inbox:</strong> new web lead or quote request → add a Leads row (1 minute).</li>
-    <li><strong>One named owner:</strong> 5-minute end-of-day sweep for stale stages, plus a 15-minute Friday cross-check against a Qualia export.</li>
+    <li><strong>Closers/processors:</strong> nothing. Ever. They work in Qualia as always.</li>
+    <li><strong>Until the feed is live:</strong> Mike or one admin refreshes the data from a Qualia export — five minutes, and only as a stopgap.</li>
+    <li><strong>After the feed:</strong> nobody touches it. Leads and reviews arrive by automation too.</li>
   </ul>
-  <p>Total across the whole team: about 10–15 minutes a day. Mike maintains nothing — he reads it.</p>
 </section>
 
 <section class="phase">
@@ -257,19 +257,20 @@ Flag any file scheduled to close where Wire Verified is unchecked. Keep it to wh
 
 <section class="phase">
   <span class="phase-tag">Phase 6 · The Qualia sync<span class="time">start today · live in 1–3 weeks</span></span>
-  <h2>Make it run itself</h2>
-  <p>The system automates in three tiers, and only the last one waits on Qualia:</p>
+  <h2>Make it run itself — the feed is the whole game</h2>
+  <p>Standing decision: the closers are never asked to feed a second system. That makes the Qualia-to-Airtable feed <strong>mandatory</strong> — the pipeline dashboard and its automations go live only when the base fills itself. Finding the feed path is the top priority of this phase, and there's a ladder of ways to get it:</p>
   <ul>
-    <li><strong>Tier 1 — you ask, it works (today).</strong> The drafting and summarizing prompts. This tier stays human-triggered on purpose.</li>
-    <li><strong>Tier 2 — runs itself off Airtable (this week, no Qualia needed).</strong> Built in Make.com as soon as the base has real data: the 7 a.m. alert to Mike (stuck files, closings that aren't ready), the automatic review request when a file closes, web leads parsed into the base from TitleTap's notification emails, and the scheduled morning brief delivered by email — no more manual export. This is Patrick's build, and it does not wait for Qualia's answer.</li>
-    <li><strong>Tier 3 — Qualia feeds the base (1–3 weeks).</strong> Removes the last manual piece, the stage dropdowns. Gated on one unknown: whether the Qualia plan includes API access. So: check today, bridge with exports, build when the answer lands.</li>
+    <li><strong>Best — the Qualia API.</strong> Make polls it every 15–30 minutes and updates the base. Fully automatic.</li>
+    <li><strong>Nearly as good — a scheduled report.</strong> If Qualia's reporting can email a report of open orders on a schedule (check this in the console today), Make catches that email and updates the base automatically. No API tier needed, zero human touch.</li>
+    <li><strong>Stopgap only — a weekly export by Mike or one admin.</strong> Five minutes, owner-level, never the closers. Acceptable while waiting on the rep, not as a way of life.</li>
+    <li><strong>If none of these exist:</strong> the pipeline board doesn't get built. The AI layer (Phases 1–3) and the lead/review automations still stand on their own.</li>
   </ul>
-  <p>What stays human forever, by design: approving and sending. Everything else is scheduled to disappear.</p>
+  <p>What runs automatically once the feed is live, all built in Make.com: the base updating itself, the 7 a.m. alert to Mike (stuck files, closings that aren't ready), the review request when a file closes, web leads parsed in from TitleTap's notification emails, and the morning brief delivered by email. What stays human forever, by design: approving and sending.</p>
 
-  <h3>Step 1 — Check the Qualia console (today, 10 min)</h3>
+  <h3>Step 1 — Check the Qualia console (today, 15 min — do this early in the visit)</h3>
   <ul class="check">
-    <li>Log into Qualia as admin and look for anything labeled <strong>API, Developer, Integrations, or Marketplace</strong>.</li>
-    <li>If there's a place to generate an <strong>API key</strong>, the gate is already open — the sync becomes a this-week build.</li>
+    <li>Log into Qualia as admin and look for anything labeled <strong>API, Developer, Integrations, or Marketplace</strong>. A place to generate an <strong>API key</strong> means the gate is already open.</li>
+    <li>Open Qualia's <strong>Reports</strong> section: can a report of open orders (with status and closing date) be <strong>emailed on a schedule</strong>? If yes, that's the feed — rung two of the ladder, available with no API tier.</li>
     <li>Either way, note the exact <strong>order status names</strong> Qualia shows — the Airtable Stage dropdown must match them word for word.</li>
   </ul>
 
