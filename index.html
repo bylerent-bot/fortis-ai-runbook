@@ -72,6 +72,15 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
     <li>In the app, click <strong>Projects → New Project</strong> and name it <strong>Fortis Command Center</strong>. Every work chat happens inside this Project.</li>
     <li>Grab the Claude app on Mike's <strong>phone</strong> too, same login — it follows him to closings and lunches.</li>
   </ul>
+
+  <h3>Connect his email and calendar</h3>
+  <p>First check what Fortis email runs on — open his inbox and look. If it's Gmail / Google Workspace:</p>
+  <ul class="check">
+    <li>Open <strong>Settings → Connectors</strong>, add <strong>Gmail</strong>, and approve the Google sign-in (Mike clicks the approvals). Claude can then read and search his mail when asked, in any chat. It can never send — drafts come back to Mike.</li>
+    <li>Add <strong>Google Calendar</strong> the same way. Coffee-meeting asks can then include his real open times, and Claude can add the event once an agent says yes, with Mike's confirm.</li>
+    <li>If Fortis is on Microsoft/Outlook instead: check the Connectors list for an Outlook option; if there isn't one, skip this — every prompt on this page works by pasting instead, and loses little.</li>
+  </ul>
+  <p>These connectors work in the normal chat window — they have nothing to do with Cowork (Phase 7). Note: Claude reads mail only when asked, in that conversation. It does not monitor the inbox in the background.</p>
 </section>
 
 <section class="phase">
@@ -210,6 +219,14 @@ When Mike asks for one of these by name, use the matching template. Always apply
     <div class="bar"><span class="label">Prompt · After the meeting — follow-up &amp; next touch</span><button class="copy">Copy</button></div>
     <pre class="prompt">I just had coffee/lunch with [AGENT NAME]. Quick notes on what we talked about: [TWO OR THREE ROUGH NOTES — kids' names, their market focus, a problem they mentioned, anything I promised]. Draft: (1) a same-day thank-you text in my voice referencing something real from the conversation; (2) if I promised anything, the message or action that delivers it; (3) a suggested next touch and when — a month out, tied to something specific about them, not generic. Save the personal details in your reply so I can paste them into a note for next time.</pre>
   </div>
+  <h3>Making the outreach automatic</h3>
+  <p>The target is zero-friction, not zero-Mike: everything arrives prepared; nothing goes out as him. With the connectors from Phase 1 on, the Monday routine looks like this:</p>
+  <ul>
+    <li><strong>Gmail connector:</strong> the re-engage and follow-up drafts pull from the real email history — no pasting.</li>
+    <li><strong>Calendar connector:</strong> coffee asks go out with his actual open times, and the event lands on the calendar when the agent says yes (Mike confirms each).</li>
+    <li><strong>The Monday trigger:</strong> look in the app for a scheduled-tasks feature — if his version has it, schedule "plan my outreach" for Monday 8 a.m. so the five drafts are waiting with his coffee. If not, a phone reminder that opens the app does the same job: the prompt is one library trigger away ("plan my outreach").</li>
+    <li><strong>Never automated:</strong> the send. Ten minutes on Monday — read, tweak, send five messages — and the relationship pipeline stays warm all year.</li>
+  </ul>
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Prep for a referral partner meeting</span><button class="copy">Copy</button></div>
     <pre class="prompt">I'm meeting [NAME], a [real estate agent / loan officer / builder] at [COMPANY]. Here's what I know about them and our history: [A SENTENCE OR TWO, OR "not much"]. Give me: three talking points that are about their business, not mine; two questions worth asking; and a short follow-up note skeleton for after. Keep it relationship and service quality — nothing that ties value to referrals.</pre>
