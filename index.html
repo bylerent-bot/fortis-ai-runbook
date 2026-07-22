@@ -117,7 +117,24 @@ Voice for drafts: professional, warm, direct. Short sentences. No corporate fill
 Interview me one question at a time, no more than six questions, about my typical day and where my time goes. Then give me a short list of the 5 tasks you can help with immediately, ranked by time saved, with a one-line example of how I'd ask you for each. Keep the whole thing plain and short.</pre>
   </div>
 
-  <h3>The three daily habits</h3>
+  <h3>Teach it Mike's voice</h3>
+  <p>Before the daily habits, spend ten minutes making drafts sound like Mike instead of like an AI. Claude reads a stack of his real sent emails, writes down the patterns as a short voice guide, Mike corrects it, and the corrected version gets saved in the Project. Every draft after that uses it.</p>
+  <ul class="check">
+    <li>If the email connector is on: run the first prompt below as-is.</li>
+    <li>If not: copy 10–15 of Mike's sent emails into the chat first (a mix — agents, clients, lenders; skip any containing account numbers), then run the same prompt.</li>
+    <li>Read the guide together. Mike crosses out anything that isn't him and adds what's missing — this edit is the most important part.</li>
+    <li>Save the corrected version as a doc in <strong>Project knowledge</strong> named <strong>Mike's Voice</strong>.</li>
+  </ul>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Build the voice guide</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Read 15 emails I've sent to real estate agents, lenders, and clients (from my sent mail, or the samples I've pasted below). Ignore any sensitive numbers. Then write a one-page voice guide describing how I actually write, covering: how I open and close emails, typical sentence length, how formal or casual I am, phrases I use often, how I deliver bad news or push back, and how I sign off. Format it as instructions to a writing assistant ("Mike opens with..., Mike never says..."). End with three things I apparently never do, so drafts avoid them. I'll correct anything you get wrong before we save it.</pre>
+  </div>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Then add one line to: Project instructions</span><button class="copy">Copy</button></div>
+    <pre class="prompt">When drafting anything Mike will send under his own name, follow the "Mike's Voice" guide in this project's knowledge. Team drafts signed "Fortis Title &amp; Escrow" stay in the standard professional voice.</pre>
+  </div>
+
+  <h3>The daily habits</h3>
   <p>These are the prompts the team uses every day. No setup, no other software — just paste and fill in the blanks.</p>
 
   <div class="promptcard">
