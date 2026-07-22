@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Fortis Title — AI Setup Runbook</title>
+<style>
+:root{
+  --paper:#faf9f5; --ink:#1c2420; --muted:#5b6a62; --accent:#1f5c40; --accent-ink:#ffffff;
+  --card:#ffffff; --line:#dde3de; --code-bg:#f0f3ef; --warn-bg:#fdf6e7; --warn-line:#e4c878; --warn-ink:#6b5316;
+  --done:#2e7d52;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --paper:#141a17; --ink:#e6ebe7; --muted:#94a39a; --accent:#5cb98c; --accent-ink:#0d1411;
+    --card:#1b2320; --line:#2c3733; --code-bg:#10161320; --code-bg:#10201a; --warn-bg:#2a2410; --warn-line:#8a6f2a; --warn-ink:#e0c26a; --done:#5cb98c; }
+}
+:root[data-theme="light"]{ --paper:#faf9f5; --ink:#1c2420; --muted:#5b6a62; --accent:#1f5c40; --accent-ink:#ffffff;
+  --card:#ffffff; --line:#dde3de; --code-bg:#f0f3ef; --warn-bg:#fdf6e7; --warn-line:#e4c878; --warn-ink:#6b5316; --done:#2e7d52; }
+:root[data-theme="dark"]{ --paper:#141a17; --ink:#e6ebe7; --muted:#94a39a; --accent:#5cb98c; --accent-ink:#0d1411;
+  --card:#1b2320; --line:#2c3733; --code-bg:#10201a; --warn-bg:#2a2410; --warn-line:#8a6f2a; --warn-ink:#e0c26a; --done:#5cb98c; }
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+main{max-width:760px;margin:0 auto;padding:2.5rem 1.25rem 5rem;}
+header.site{border-bottom:3px solid var(--accent);padding-bottom:1.5rem;margin-bottom:2.5rem;}
+.eyebrow{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 .5rem;}
+h1{font-family:Georgia,'Times New Roman',serif;font-size:2.1rem;line-height:1.15;margin:0 0 .6rem;text-wrap:balance;}
+.lede{color:var(--muted);margin:0;max-width:60ch;}
+h2{font-family:Georgia,serif;font-size:1.45rem;margin:0 0 .25rem;line-height:1.2;}
+h3{font-size:1.02rem;margin:1.4rem 0 .5rem;}
+section.phase{margin:0 0 2.75rem;padding-top:1.75rem;border-top:1px solid var(--line);}
+.phase-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:.4rem;}
+.time{font-size:.8rem;color:var(--muted);margin-left:.6rem;letter-spacing:0;text-transform:none;font-weight:500;}
+p{max-width:66ch;}
+ul,ol{max-width:66ch;padding-left:1.3rem;}
+li{margin:.35rem 0;}
+.promptcard{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:1rem 0 1.5rem;overflow:hidden;}
+.promptcard .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.55rem .9rem;border-bottom:1px solid var(--line);}
+.promptcard .bar .label{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+button.copy{font:inherit;font-size:.8rem;font-weight:600;color:var(--accent-ink);background:var(--accent);border:none;border-radius:6px;padding:.35rem .85rem;cursor:pointer;}
+button.copy:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+button.copy.copied{background:var(--done);}
+pre.prompt{margin:0;padding:1rem;background:var(--code-bg);font:.84rem/1.55 ui-monospace,"SF Mono",Menlo,Consolas,monospace;white-space:pre-wrap;overflow-x:auto;}
+.note{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:8px;padding:.9rem 1.1rem;color:var(--warn-ink);margin:1.25rem 0;max-width:none;}
+.note strong{color:inherit;}
+.check{list-style:none;padding-left:0;}
+.check li{padding-left:1.7rem;position:relative;}
+.check li::before{content:"";position:absolute;left:0;top:.42em;width:.85em;height:.85em;border:2px solid var(--accent);border-radius:3px;}
+.rules{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:1rem 1.25rem;margin:1.25rem 0;}
+.rules ul{margin:.4rem 0 0;}
+footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-size:.85rem;color:var(--muted);}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<main>
+<header class="site">
+  <p class="eyebrow">Fortis Title &amp; Escrow · AI Setup Runbook</p>
+  <h1>Getting Claude working for Fortis, step by step</h1>
+  <p class="lede">Work top to bottom. Every gray box is a prompt — hit Copy, paste it into Claude, and follow what comes back. Phases 1–3 happen today; Phases 4–6 are this week.</p>
+</header>
+
+<div class="note"><strong>Two rules before anything else.</strong> (1) No client Social Security numbers, bank account numbers, or wire instructions go into any AI chat — ever. Names, addresses, file numbers, and stages are fine. (2) The AI drafts; a person sends. It never states binding closing figures and never touches money.</div>
+
+<section class="phase">
+  <span class="phase-tag">Phase 1 · Account &amp; app<span class="time">~20 min</span></span>
+  <h2>Set up the account and the app</h2>
+  <ul class="check">
+    <li>Go to <strong>claude.ai</strong>, create an account with Mike's work email, and upgrade to the <strong>Pro plan</strong>.</li>
+    <li>Open <strong>Settings → Privacy</strong> and make sure the option to use chats for model training is <strong>turned off</strong>.</li>
+    <li>Download the <strong>Claude desktop app</strong> from claude.ai/download, install it, and sign in with the same account. This is where all the day-to-day work happens — pin it to the dock or taskbar so it's one click away.</li>
+    <li>For now, use the app as a chat window only — hold off on Cowork mode and file access until Phase 7.</li>
+    <li>In the app, click <strong>Projects → New Project</strong> and name it <strong>Fortis Command Center</strong>. Every work chat happens inside this Project.</li>
+    <li>Grab the Claude app on Mike's <strong>phone</strong> too, same login — the Project and its rules follow him to closings.</li>
+  </ul>
+</section>
+
+<section class="phase">
+  <span class="phase-tag">Phase 2 · Project instructions<span class="time">~5 min</span></span>
+  <h2>Teach the Project who Fortis is</h2>
+  <p>In the Fortis Command Center Project, click <strong>Set project instructions</strong> and paste this. It becomes the standing brief for every conversation inside the Project.</p>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Paste into: Project instructions</span><button class="copy">Copy</button></div>
+    <pre class="prompt">You are the executive assistant for Fortis Title &amp; Escrow, a title and settlement agency in Virginia Beach, Virginia, owned by Mike Palacios. The team runs closings in Qualia (title production software) and the website runs on TitleTap. Roughly 10 people. Clients are home buyers and sellers; referral business comes from real estate agents, loan officers, and builders across Hampton Roads.
+
+Your job: help Mike and the team run the business. Draft communications, summarize documents and email threads, surface what needs attention, and answer questions about the pipeline when data is provided.
+
+Hard rules, always:
+1. You are advisory only. Never state binding closing figures, never authorize a wire or any movement of money.
+2. On title, closing, or legal questions, recommend a licensed human review. Never give legal advice.
+3. RESPA compliance: never propose giving anything of value to a referral source in exchange for referrals. Referral data is internal analytics only. Review requests and thank-you notes must never offer or imply anything in return.
+4. Never ask for or repeat Social Security numbers, bank account numbers, or wire instructions. If they appear in pasted material, do not repeat them back.
+5. Be concise, specific, and plain-spoken. Reference files by file number and property address. If data is missing, say so rather than guessing.
+
+Voice for drafts: professional, warm, direct. Short sentences. No corporate filler.</pre>
+  </div>
+</section>
+
+<section class="phase">
+  <span class="phase-tag">Phase 3 · First conversation<span class="time">~20 min</span></span>
+  <h2>Mike's orientation chat</h2>
+  <p>Start a new chat in the Project and paste this. It turns the first session into a guided tour built around his actual work.</p>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Orientation</span><button class="copy">Copy</button></div>
+    <pre class="prompt">I'm Mike, the owner. This is my first real session with you. I currently do almost everything by phone and email and I want to learn what you can take off my plate.
+
+Interview me one question at a time, no more than six questions, about my typical day and where my time goes. Then give me a short list of the 5 tasks you can help with immediately, ranked by time saved, with a one-line example of how I'd ask you for each. Keep the whole thing plain and short.</pre>
+  </div>
+
+  <h3>The three daily habits</h3>
+  <p>These are the prompts the team uses every day. No setup, no other software — just paste and fill in the blanks.</p>
+
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Agent status update</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Draft a short, friendly status email to [AGENT NAME] about file [FILE #] at [PROPERTY ADDRESS]. Current stage: [STAGE]. Next step: [NEXT STEP]. Closing date: [DATE]. Tone: professional, warm, reassuring. Do not state dollar figures. Sign as Fortis Title &amp; Escrow. Under 120 words. Also give me a 2-sentence text message version.</pre>
+  </div>
+
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Summarize a long email thread</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Below is an email thread about one of our files. Summarize it for me: (1) what's been decided, (2) what's still open, (3) who owes the next move, (4) anything that looks like a risk to the closing date. Then draft the reply I should send. Remove any SSNs or account numbers if they appear.
+
+[PASTE THE THREAD HERE]</pre>
+  </div>
+
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Explain a document</span><button class="copy">Copy</button></div>
+    <pre class="prompt">I'm attaching a document from one of our files. Explain what it is and what it means in plain English, flag anything unusual a title agent should look at twice, and list any dates or deadlines it creates. This is for my understanding only — a licensed person makes the actual call.</pre>
+  </div>
+
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Post-closing review request</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Draft a warm email and a shorter text asking [CLIENT NAME] for an honest Google review of their closing experience with Fortis. Include this review link: [LINK]. Do not offer anything in return. Two sentences for the text, about 80 words for the email.</pre>
+  </div>
+
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Referral thank-you (RESPA-safe)</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Draft a brief, genuine thank-you note to [REFERRAL SOURCE] for trusting Fortis with [CLIENT]'s closing. Relationship tone, personal. Do not reference referral volume and do not offer or imply anything of value. Under 80 words.</pre>
+  </div>
+
+  <h3>Where these prompts live permanently</h3>
+  <p>Don't make the team hunt for this page. In the Project, click <strong>Add content → Create a doc</strong> (project knowledge), name it <strong>Fortis Prompt Library</strong>, and paste the block below. From then on, nobody pastes the long prompts again — anyone in the Project just types things like <em>"status update for file 1234 to Jane Smith, stage Commitment Issued, closing 8/15"</em> and Claude applies the matching template and its rules automatically.</p>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Paste into: Project knowledge · "Fortis Prompt Library"</span><button class="copy">Copy</button></div>
+    <pre class="prompt">FORTIS PROMPT LIBRARY
+When someone asks for one of these by name, use the matching template. Always apply the Project's standing rules (no dollar figures in drafts, no legal advice, RESPA-safe, no SSNs or account numbers).
+
+1. STATUS UPDATE — "status update for file [#]"
+Short, friendly status email to the agent or lender on the file. Include current stage, next step, closing date. Warm, reassuring, under 120 words, signed Fortis Title &amp; Escrow. Also provide a 2-sentence text version.
+
+2. THREAD SUMMARY — "summarize this thread"
+From a pasted email thread: what's decided, what's open, who owes the next move, any risk to the closing date. Then draft the reply. Strip any SSNs or account numbers.
+
+3. EXPLAIN A DOCUMENT — "explain this document"
+Plain-English explanation of an attached file document, anything unusual worth a second look, and any dates or deadlines it creates. Understanding only; a licensed person makes the call.
+
+4. REVIEW REQUEST — "review request for [client]"
+Warm email (~80 words) plus 2-sentence text asking for an honest Google review. Include the review link. Never offer anything in return.
+
+5. REFERRAL THANK-YOU — "thank-you for [referral source]"
+Brief, genuine, personal note. Never reference referral volume, never offer or imply anything of value. Under 80 words.
+
+6. MORNING BRIEF — "morning brief" (with the Airtable export attached)
+Structure: Today's closings and what each needs · Needs you today with reasons · Watch (closing in 3–5 days, not clear) · New/unworked leads with age · One nudge. Flag closings where Wire Verified is unchecked. No filler.</pre>
+  </div>
+</section>
+
+<section class="phase">
+  <span class="phase-tag">Phase 4 · The command center<span class="time">~1 hr, this week</span></span>
+  <h2>Build the Airtable hub</h2>
+  <p>One dashboard that answers: what's happening, what needs me today, and how's marketing. Create a free Airtable account at <strong>airtable.com</strong> (same work email), then paste this into Claude — it walks you through the whole build and generates the starter files.</p>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Build the base</span><button class="copy">Copy</button></div>
+    <pre class="prompt">I'm building an Airtable base called "Fortis Command Center" for our title agency. Walk me through it step by step, one table at a time, and wait for me to say "done" before moving to the next. At the end, generate an importable starter CSV for each table with 3 example rows I can replace with real files.
+
+The schema:
+
+TABLE 1 — Open Files (the core pipeline, one row per closing):
+File # (primary, our Qualia order ID), Property Address, Stage (single select: Order Received / Title Search / Commitment Issued / Clear to Close / Scheduled / Closed / Post-Closing / On Hold), Transaction Type (Purchase / Refi / Commercial / Construction), Closing Date (date), Title Commitment Due (date), Earnest Money Received (checkbox), Buyer and Seller (links to Parties), Referral Source (link to Referral Sources), Assigned To (single select of our staff), Wire Verified (checkbox), Days in Stage (formula from a Last Stage Change date field), Needs Attention (formula: TRUE if closing within 3 days and not yet Clear to Close or Scheduled, OR more than 7 days in stage, OR no earnest money past Order Received), Notes.
+
+TABLE 2 — Parties: Name, Role (Buyer/Seller), Email, Phone, Military (checkbox), linked Files.
+
+TABLE 3 — Referral Sources: Name, Type (Agent / Loan Officer / Builder / Attorney / Other), Company, Email, Phone, Orders YTD (rollup count from Open Files), Last Order (rollup max date), Last Touch (date), Notes.
+
+TABLE 4 — Leads: Name, Source (Order Form / Net-Sheet / Quote / Call / Other), Received (date), Status (New / Working / Won / Lost), Worked By, Converted to File (link), Notes.
+
+TABLE 5 — Reviews: Reviewer, Platform (Google / Facebook / Other), Rating, Date, Requested (checkbox), Posted (checkbox).
+
+Views to build: a Kanban of Open Files grouped by Stage; "What Needs Me Today" (Needs Attention = TRUE, sorted by Closing Date); "Closing This Week" (calendar); a Referral Leaderboard sorted by Orders YTD.
+
+After the tables and views work, walk me through building one Airtable Interface page: a dashboard showing the pipeline Kanban, the What Needs Me Today list, and the closing-this-week calendar, so the team sees a clean screen instead of raw tables.
+
+Important: before we start, ask me for the exact order status names we use in Qualia so the Stage options match what my processors already see.</pre>
+  </div>
+
+  <h3>What the team does to keep it current</h3>
+  <ul>
+    <li><strong>Processors:</strong> new order → add a row (2 minutes). Stage changes → update one dropdown (10 seconds). Tick earnest-money and wire-verified boxes as they happen.</li>
+    <li><strong>Front desk / inbox:</strong> new web lead or quote request → add a Leads row (1 minute).</li>
+    <li><strong>One named owner:</strong> 5-minute end-of-day sweep for stale stages, plus a 15-minute Friday cross-check against a Qualia export.</li>
+  </ul>
+  <p>Total across the whole team: about 10–15 minutes a day. Mike maintains nothing — he reads it.</p>
+</section>
+
+<section class="phase">
+  <span class="phase-tag">Phase 5 · The daily brief<span class="time">~10 min, daily</span></span>
+  <h2>The morning brief</h2>
+  <p>Each morning, export the Open Files and Leads tables from Airtable as CSV (or copy the grid), attach or paste into a new chat in the Project, and run this. Later this gets automated; the manual version proves the value first.</p>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Daily brief</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Here is today's data from our command center (attached / pasted below). Write my morning brief in this structure, plain and short:
+
+1. TODAY'S CLOSINGS — each with what it still needs.
+2. NEEDS YOU TODAY — files flagged Needs Attention, with why in a few words each.
+3. WATCH — closings in the next 3–5 days not yet clear to close.
+4. LEADS — new or unworked leads and how old they are.
+5. ONE NUDGE — the single most important thing for me to personally do today.
+
+Flag any file scheduled to close where Wire Verified is unchecked. Keep it to what matters. No filler.
+
+[ATTACH OR PASTE THE EXPORT]</pre>
+  </div>
+</section>
+
+<section class="phase">
+  <span class="phase-tag">Phase 6 · The Qualia sync<span class="time">start today · live in 1–3 weeks</span></span>
+  <h2>Connect Qualia to the command center</h2>
+  <p>The end state: Qualia feeds Airtable automatically every 15–30 minutes, and nobody types a stage again. It's gated on one unknown — whether the Qualia plan includes API access — so the play is: check today, bridge with exports, build when the answer lands.</p>
+
+  <h3>Step 1 — Check the Qualia console (today, 10 min)</h3>
+  <ul class="check">
+    <li>Log into Qualia as admin and look for anything labeled <strong>API, Developer, Integrations, or Marketplace</strong>.</li>
+    <li>If there's a place to generate an <strong>API key</strong>, the gate is already open — the sync becomes a this-week build.</li>
+    <li>Either way, note the exact <strong>order status names</strong> Qualia shows — the Airtable Stage dropdown must match them word for word.</li>
+  </ul>
+
+  <h3>Step 2 — Email the Qualia rep (today, 10 min)</h3>
+  <p>Send this regardless of what the console shows — the webhook and pricing answers matter either way, and the response is the slow part.</p>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Qualia API email</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Draft a short email to our Qualia account rep, [REP NAME OR "our account team"], from Mike Palacios at Fortis Title &amp; Escrow. Ask three things: (1) does our current plan include API access, and if not, what tier and cost adds it; (2) does the API support reading open orders with their status/milestone, parties, and closing dates; (3) do they support event notifications (webhooks) or is scheduled polling the way to pull updates. Context: we're building an internal reporting dashboard, not replacing Qualia. Professional and brief.</pre>
+  </div>
+
+  <h3>Step 3 — The bridge: weekly export sync (today, and every Friday until the API is live)</h3>
+  <p>Qualia can export order data; Airtable imports CSV straight into Open Files. That's a manual sync — same data, on demand instead of every 15 minutes. Do it once together today so the habit exists.</p>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Import a Qualia export</span><button class="copy">Copy</button></div>
+    <pre class="prompt">I have a CSV export of open orders from Qualia (attached) and an Airtable base with an Open Files table whose fields are: File #, Property Address, Stage, Transaction Type, Closing Date, Title Commitment Due, Earnest Money Received, Referral Source, Assigned To, Wire Verified, Notes.
+
+Walk me through importing this into Airtable so that existing rows update by File # instead of duplicating, and tell me which columns map to which fields. Flag any orders in the export that are missing a closing date or a stage, and list any rows in Airtable that no longer appear in the export (likely closed) so I can update them.</pre>
+  </div>
+
+  <h3>Step 4 — The real build (when API access is confirmed)</h3>
+  <ol>
+    <li>Generate the API key in Qualia (admin console).</li>
+    <li>Create a <strong>Make.com</strong> account. Build the scenario: schedule every 15–30 min → pull open orders from the Qualia API → upsert into Open Files by File # → stamp the stage-change date.</li>
+    <li>Map Qualia's status names to the Stage dropdown one-to-one.</li>
+    <li>Add the two follow-on automations: the 7 a.m. deadline alert to Mike, and the post-closing review request.</li>
+    <li>Run manual entry and the sync in parallel for one week; when they agree, staff stop updating stages by hand.</li>
+  </ol>
+  <p><strong>Timeline:</strong> if the console already shows API access, this is a few focused hours — realistically a second visit this week. If it needs a plan upgrade, expect one to three weeks, mostly waiting on the rep, and the Friday export bridge covers the gap. This step is Patrick's build, not Mike's — Mike's only jobs are the rep email and the yes/no on any API-tier cost.</p>
+</section>
+
+<section class="phase">
+  <span class="phase-tag">Phase 7 · Later — Cowork<span class="time">a few weeks in, once the habits stick</span></span>
+  <h2>The upgrade: Claude that works with your files</h2>
+  <p>Everything above happens in a chat window: you bring things to Claude by pasting or attaching them. <strong>Cowork</strong> is the next level. It's a mode in the Claude desktop app where Claude can open a folder on the computer, read what's inside, and produce real documents — Word files, spreadsheets — instead of just chat replies.</p>
+  <p>In plain terms: today you copy things <em>to</em> Claude. With Cowork, Claude comes <em>to your files</em>.</p>
+
+  <h3>What it's for at Fortis</h3>
+  <ul>
+    <li><strong>Check a closing folder.</strong> Point it at one file's folder and ask: "Read everything in here. What's missing, and what deadlines do these documents create?"</li>
+    <li><strong>Skip the export step.</strong> With the Airtable connector switched on, ask "what needs me today?" and Claude reads the command center directly — no CSV.</li>
+    <li><strong>Make real documents.</strong> The weekly marketing readout as a Word doc, a batch of template letters, a summary spreadsheet — finished files, not text to copy out of a chat.</li>
+  </ul>
+
+  <h3>Why wait a few weeks</h3>
+  <p>Two reasons. First, one new tool per visit is the pace that sticks — the chat habits come first. Second, Cowork can see files, and closing folders contain Social Security numbers and bank details. Before it ever touches real client files, the boundaries below get set on purpose, not in a hurry.</p>
+
+  <h3>Setup, when the time comes</h3>
+  <ul class="check">
+    <li>The desktop app is already installed from Phase 1 — nothing is rebuilt; the Project, its instructions, and the prompt library carry over.</li>
+    <li>Open <strong>Cowork</strong> mode in the app (this is the step that waited).</li>
+    <li>Make one folder on the computer called <strong>Claude Workspace</strong>. That is the only folder Claude gets pointed at. To have Claude look at a closing file, copy that file's documents into the workspace first — client folders themselves stay off limits.</li>
+    <li>Switch on the <strong>Airtable connector</strong> in the app's settings and connect the Fortis Command Center base.</li>
+    <li>Run the first task together on a <strong>closed</strong> file (paste the prompt below), so the first live test has nothing at stake.</li>
+  </ul>
+
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · First Cowork task (use a closed file)</span><button class="copy">Copy</button></div>
+    <pre class="prompt">The folder I've given you contains the documents from one of our closed title files. Read everything in it and give me: (1) a list of each document and what it is, in one line each; (2) anything a title agency's checklist would say is missing from a complete file; (3) every date or deadline these documents created while the file was open. Do not repeat any Social Security numbers or bank account numbers in your answer. Save the result as a Word document called "File Review" in the same folder.</pre>
+  </div>
+
+  <h3>The rules, extended for Cowork</h3>
+  <ul>
+    <li>Claude only ever works inside the <strong>Claude Workspace</strong> folder. Never point it at the whole computer or the client drive.</li>
+    <li>Same rule as chat: it can read documents that contain sensitive numbers, but its write-ups never repeat SSNs, account numbers, or wire instructions.</li>
+    <li>It reviews and drafts. A person still checks the work and sends anything that leaves the building.</li>
+  </ul>
+</section>
+
+<section class="phase">
+  <span class="phase-tag">Standing rules</span>
+  <h2>The guardrails</h2>
+  <div class="rules">
+    <ul>
+      <li>AI drafts and surfaces. A human decides and sends. Every time.</li>
+      <li>Never in a chat: SSNs, bank or account numbers, wire instructions.</li>
+      <li>Never anything of value to a referral source — for referrals or reviews. Reviews are asked for honestly, nothing offered.</li>
+      <li>Referral and marketing data stays internal.</li>
+      <li>Before the automated version goes live, run the plan past counsel and the underwriter.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Prepared by Patrick Clark for Mike Palacios · Fortis Title &amp; Escrow · July 2026</footer>
+</main>
+
+<script>
+document.querySelectorAll('.promptcard').forEach(card=>{
+  const btn=card.querySelector('button.copy'), pre=card.querySelector('pre.prompt');
+  btn.addEventListener('click',async()=>{
+    try{await navigator.clipboard.writeText(pre.textContent);}catch(e){
+      const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');s.removeAllRanges();
+    }
+    btn.textContent='Copied';btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='Copy';btn.classList.remove('copied');},1600);
+  });
+});
+</script>
+
+</html>
