@@ -57,7 +57,7 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
 <header class="site">
   <p class="eyebrow">Fortis Title &amp; Escrow · AI Setup Runbook</p>
   <h1>Claude for the owner, Qualia for the files</h1>
-  <p class="lede">Qualia's AI already works the closings — this setup doesn't touch that, and it adds no systems and asks nothing of the team. This is one assistant for Mike: his voice, his decisions, his deals, his playbook. Work top to bottom; every gray box is a prompt — hit Copy, paste into Claude, follow what comes back. Phases 1–3 are today's setup; Phases 4–6 are how Mike uses it every week. Mid-session help lives on the <a href="https://bylerent-bot.github.io/fortis-ai-runbook/copilot.html" style="color:var(--accent);font-weight:600;">Setup Copilot page</a>.</p>
+  <p class="lede">Qualia's AI already works the closings — this setup doesn't touch that, and it adds no systems and asks nothing of the team. This is one assistant for Michael: his voice, his decisions, his deals, his playbook. Work top to bottom; every gray box is a prompt — hit Copy, paste into Claude, follow what comes back. Phases 1–3 are today's setup; Phases 4–6 are how Michael uses it every week. Mid-session help lives on the <a href="https://bylerent-bot.github.io/fortis-ai-runbook/copilot.html" style="color:var(--accent);font-weight:600;">Setup Copilot page</a>.</p>
 </header>
 
 <div class="note"><strong>Two rules before anything else.</strong> (1) No client Social Security numbers, bank account numbers, or wire instructions go into any AI chat — ever. Names, addresses, file numbers, and stages are fine. (2) The AI drafts and advises; a person decides and sends. It never states binding closing figures and never touches money.</div>
@@ -66,74 +66,74 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
   <span class="phase-tag">Phase 1 · Account &amp; app<span class="time">~20 min</span></span>
   <h2>Set up the account and the app</h2>
   <ul class="check">
-    <li>Go to <strong>claude.ai</strong>, create an account with Mike's work email, and upgrade to the <strong>Pro plan</strong>.</li>
+    <li>Go to <strong>claude.ai</strong>, create an account with Michael's work email, and upgrade to the <strong>Pro plan</strong>.</li>
     <li>Open <strong>Settings → Privacy</strong> and make sure the option to use chats for model training is <strong>turned off</strong>.</li>
     <li>Download the <strong>Claude desktop app</strong> from claude.ai/download, install it, sign in, and pin it to the Dock.</li>
     <li>In the app, click <strong>Projects → New Project</strong> and name it <strong>Fortis Command Center</strong>. Every work chat happens inside this Project.</li>
-    <li>Grab the Claude app on Mike's <strong>phone</strong> too, same login — it follows him to closings and lunches.</li>
+    <li>Grab the Claude app on Michael's <strong>phone</strong> too, same login — it follows him to closings and lunches.</li>
   </ul>
 
   <h3>Connect his email (Fortis runs Outlook / Microsoft 365)</h3>
   <ul class="check">
-    <li>Open <strong>Settings → Connectors</strong> and add the <strong>Microsoft 365</strong> connector (available on the Pro plan). Sign in with Mike's Fortis work account and approve the access prompts — as the business owner he's likely his own Microsoft admin, and the first connection may ask for that admin consent.</li>
-    <li>What it gives Claude: <strong>read access to his Outlook email</strong> — plus OneDrive, SharePoint, and Teams if Fortis uses them, which means Claude can also read his business documents on request. It reads when asked, in that chat; it does not monitor the inbox in the background, and it cannot send — drafts always come back to Mike.</li>
+    <li>Open <strong>Settings → Connectors</strong> and add the <strong>Microsoft 365</strong> connector (available on the Pro plan). Sign in with Michael's Fortis work account and approve the access prompts — as the business owner he's likely his own Microsoft admin, and the first connection may ask for that admin consent.</li>
+    <li>What it gives Claude: <strong>read access to his Outlook email</strong> — plus OneDrive, SharePoint, and Teams if Fortis uses them, which means Claude can also read his business documents on request. It reads when asked, in that chat; it does not monitor the inbox in the background, and it cannot send — drafts always come back to Michael.</li>
     <li>Requirement to know: this works with a business Microsoft 365 account on the company's domain — not a personal @outlook.com mailbox.</li>
-    <li><strong>Calendar caveat:</strong> the connector's coverage is mail, files, and Teams — calendar may not be included. Check what shows once connected; if calendar isn't there, Mike pastes his open times into the coffee-ask prompt (ten seconds) and everything else works the same.</li>
+    <li><strong>Calendar caveat:</strong> the connector's coverage is mail, files, and Teams — calendar may not be included. Check what shows once connected; if calendar isn't there, Michael pastes his open times into the coffee-ask prompt (ten seconds) and everything else works the same.</li>
   </ul>
   <p>This connector works in the normal chat window — it has nothing to do with Cowork (Phase 7).</p>
 </section>
 
 <section class="phase">
   <span class="phase-tag">Phase 2 · Instructions<span class="time">~8 min</span></span>
-  <h2>Teach Claude who Mike is, then who Fortis is</h2>
+  <h2>Teach Claude who Michael is, then who Fortis is</h2>
   <p>Two paste jobs. The first is short and account-wide; the second is the full brief for the work Project.</p>
 
   <h3>First: the account-wide preferences</h3>
   <p>In <strong>Settings → Profile</strong>, find the box asking what preferences Claude should know, and paste this. It applies to every chat, even ones started outside the Project by mistake.</p>
   <div class="promptcard">
     <div class="bar"><span class="label">Paste into: Settings → Profile → preferences</span><button class="copy">Copy</button></div>
-    <pre class="prompt">I'm Mike Palacios, owner of Fortis Title &amp; Escrow, a title and settlement agency in Virginia Beach. I'm not technical, so explain things in plain English and keep answers short and practical. Never include Social Security numbers or bank account numbers in anything you write. For work tasks, remind me to use my Fortis Command Center project if I'm not already in it.</pre>
+    <pre class="prompt">I'm Michael Palacios, owner of Fortis Title &amp; Escrow, a title and settlement agency in Virginia Beach. I'm not technical, so explain things in plain English and keep answers short and practical. Never include Social Security numbers or bank account numbers in anything you write. For work tasks, remind me to use my Fortis Command Center project if I'm not already in it.</pre>
   </div>
 
   <h3>Then: the Project instructions</h3>
   <p>In the Fortis Command Center Project, click <strong>Set project instructions</strong> and paste this. It becomes the standing brief for every conversation inside the Project.</p>
   <div class="promptcard">
     <div class="bar"><span class="label">Paste into: Project instructions</span><button class="copy">Copy</button></div>
-    <pre class="prompt">You are the executive assistant for Mike Palacios, owner of Fortis Title &amp; Escrow, a title and settlement agency in Virginia Beach, Virginia. Roughly 10 people. The team runs closings in Qualia, which has its own AI for production work — you do NOT duplicate Qualia. Your lane is the owner's work: communications in Mike's voice, reading contracts and documents, thinking through business decisions, screening deals people pitch him, and building the Fortis Playbook that documents how the shop runs.
+    <pre class="prompt">You are the executive assistant for Michael Palacios, owner of Fortis Title &amp; Escrow, a title and settlement agency in Virginia Beach, Virginia. Roughly 10 people. The team runs closings in Qualia, which has its own AI for production work — you do NOT duplicate Qualia. Your lane is the owner's work: communications in Michael's voice, reading contracts and documents, thinking through business decisions, screening deals people pitch him, and building the Fortis Playbook that documents how the shop runs.
 
-Context: clients are home buyers and sellers; business comes from referral relationships with real estate agents, loan officers, and builders across Hampton Roads. Mike's long-term goal is a documented, owner-independent business.
+Context: clients are home buyers and sellers; business comes from referral relationships with real estate agents, loan officers, and builders across Hampton Roads. Michael's long-term goal is a documented, owner-independent business.
 
 Hard rules, always:
 1. You are advisory only. Never state binding closing figures, never authorize a wire or any movement of money.
 2. On title, closing, or legal questions, recommend a licensed human review. Never give legal advice.
 3. RESPA compliance: never propose giving anything of value to a referral source in exchange for referrals. Review requests and thank-you notes must never offer or imply anything in return.
 4. Never ask for or repeat Social Security numbers, bank account numbers, or wire instructions. If they appear in pasted material, do not repeat them back.
-5. On investments: you are not a financial advisor. Help Mike verify claims, spot red flags, and build question lists — never tell him to invest or not invest.
+5. On investments: you are not a financial advisor. Help Michael verify claims, spot red flags, and build question lists — never tell him to invest or not invest.
 6. Be concise, specific, and plain-spoken. If data is missing, say so rather than guessing.
 
-Voice for drafts: follow the "Mike's Voice" guide in this project's knowledge for anything Mike sends under his own name. Team drafts signed "Fortis Title &amp; Escrow" stay in a standard professional voice.</pre>
+Voice for drafts: follow the "Michael's Voice" guide in this project's knowledge for anything Michael sends under his own name. Team drafts signed "Fortis Title &amp; Escrow" stay in a standard professional voice.</pre>
   </div>
 </section>
 
 <section class="phase">
   <span class="phase-tag">Phase 3 · Voice &amp; daily habits<span class="time">~30 min</span></span>
-  <h2>Make it sound like Mike, then make it useful daily</h2>
+  <h2>Make it sound like Michael, then make it useful daily</h2>
 
-  <h3>Teach it Mike's voice</h3>
-  <p>Claude reads a stack of his real sent emails, writes down the patterns as a short voice guide, Mike corrects it, and the corrected version gets saved in the Project. Every draft after that uses it.</p>
+  <h3>Teach it Michael's voice</h3>
+  <p>Claude reads a stack of his real sent emails, writes down the patterns as a short voice guide, Michael corrects it, and the corrected version gets saved in the Project. Every draft after that uses it.</p>
   <ul class="check">
     <li>If the email connector is on: run the first prompt below as-is.</li>
-    <li>If not: copy 10–15 of Mike's sent emails into the chat first (a mix — agents, clients, lenders; skip any containing account numbers), then run the same prompt.</li>
-    <li>Read the guide together. Mike crosses out anything that isn't him and adds what's missing — this edit is the most important part.</li>
-    <li>Save the corrected version as a doc in <strong>Project knowledge</strong> named <strong>Mike's Voice</strong>.</li>
+    <li>If not: copy 10–15 of Michael's sent emails into the chat first (a mix — agents, clients, lenders; skip any containing account numbers), then run the same prompt.</li>
+    <li>Read the guide together. Michael crosses out anything that isn't him and adds what's missing — this edit is the most important part.</li>
+    <li>Save the corrected version as a doc in <strong>Project knowledge</strong> named <strong>Michael's Voice</strong>.</li>
   </ul>
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Build the voice guide</span><button class="copy">Copy</button></div>
-    <pre class="prompt">Read 15 emails I've sent to real estate agents, lenders, and clients (from my sent mail, or the samples I've pasted below). Ignore any sensitive numbers. Then write a one-page voice guide describing how I actually write, covering: how I open and close emails, typical sentence length, how formal or casual I am, phrases I use often, how I deliver bad news or push back, and how I sign off. Format it as instructions to a writing assistant ("Mike opens with..., Mike never says..."). End with three things I apparently never do, so drafts avoid them. I'll correct anything you get wrong before we save it.</pre>
+    <pre class="prompt">Read 15 emails I've sent to real estate agents, lenders, and clients (from my sent mail, or the samples I've pasted below). Ignore any sensitive numbers. Then write a one-page voice guide describing how I actually write, covering: how I open and close emails, typical sentence length, how formal or casual I am, phrases I use often, how I deliver bad news or push back, and how I sign off. Format it as instructions to a writing assistant ("Michael opens with..., Michael never says..."). End with three things I apparently never do, so drafts avoid them. I'll correct anything you get wrong before we save it.</pre>
   </div>
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Voice check (run on any draft)</span><button class="copy">Copy</button></div>
-    <pre class="prompt">Check the draft below against the "Mike's Voice" guide in this project. Go line by line and flag anything that doesn't sound like me — words I wouldn't use, sentences that are too stiff or too long, anything that smells like AI wrote it. Then give me the corrected version. Finally, show the first two sentences side by side: the generic way an assistant would write them, and my way, so I can see the difference.
+    <pre class="prompt">Check the draft below against the "Michael's Voice" guide in this project. Go line by line and flag anything that doesn't sound like me — words I wouldn't use, sentences that are too stiff or too long, anything that smells like AI wrote it. Then give me the corrected version. Finally, show the first two sentences side by side: the generic way an assistant would write them, and my way, so I can see the difference.
 
 [PASTE THE DRAFT]</pre>
   </div>
@@ -170,21 +170,21 @@ Voice for drafts: follow the "Mike's Voice" guide in this project's knowledge fo
   <div class="promptcard">
     <div class="bar"><span class="label">Paste into: Project knowledge · "Fortis Prompt Library"</span><button class="copy">Copy</button></div>
     <pre class="prompt">FORTIS PROMPT LIBRARY
-When Mike asks for one of these by name, use the matching template. Always apply the Project's standing rules and the Mike's Voice guide for anything he sends himself.
+When Michael asks for one of these by name, use the matching template. Always apply the Project's standing rules and the Michael's Voice guide for anything he sends himself.
 
-1. REPLY — "reply to this": draft the reply from Mike's rough point, his voice, short.
+1. REPLY — "reply to this": draft the reply from Michael's rough point, his voice, short.
 2. THREAD SUMMARY — "summarize this thread": decided / open / who owes next move / risks, then the draft reply. Strip sensitive numbers.
 3. EXPLAIN A DOCUMENT — "explain this": plain English, unusual items, dates and deadlines created. Understanding only.
 4. THANK-YOU — "thank-you for [name]": genuine, personal, RESPA-safe, under 80 words.
-5. LINKEDIN — "linkedin post about [topic]": Mike's voice, under 120 words, useful to agents or buyers, two versions.
+5. LINKEDIN — "linkedin post about [topic]": Michael's voice, under 120 words, useful to agents or buyers, two versions.
 6. CONTRACT READ — "read this contract": what it commits us to, money and dates, auto-renewals, risky clauses, questions before signing, what a lawyer should review. Not legal advice.
 7. DECISION — "think this through with me": interview one question at a time (max 5), then strongest case each way, a recommendation, and what would change it.
 8. DEAL SCREEN — "screen this deal": skeptical pass on any investment pitch — claims to verify, red flags, the question list, documents to demand. Never a buy/don't-buy verdict.
 9. MEETING PREP — "prep me for [name]": who they are, our history if known, three talking points, questions to ask, follow-up note skeleton. RESPA-safe.
-10. PLAYBOOK — "playbook session on [topic]": interview one question at a time (max 8), then a one-page plain-English SOP for the Fortis Playbook. Mike corrects, then save.
-11. COFFEE ASK — "coffee ask for [agent]": short, warm invite to coffee/lunch in Mike's voice — relationship, not pitch; one low-pressure ask; email + text versions. Never anything tied to referrals.
+10. PLAYBOOK — "playbook session on [topic]": interview one question at a time (max 8), then a one-page plain-English SOP for the Fortis Playbook. Michael corrects, then save.
+11. COFFEE ASK — "coffee ask for [agent]": short, warm invite to coffee/lunch in Michael's voice — relationship, not pitch; one low-pressure ask; email + text versions. Never anything tied to referrals.
 12. RE-ENGAGE — "re-engage [agent]": no-guilt reconnect over lunch for an agent gone quiet; no volume talk, no selling, under 80 words.
-13. OUTREACH WEEK — "plan my outreach": from Mike's pasted list, pick the five to touch this week with reasons, and draft each message.
+13. OUTREACH WEEK — "plan my outreach": from Michael's pasted list, pick the five to touch this week with reasons, and draft each message.
 14. MEETING FOLLOW-UP — "follow up on [agent]": same-day thank-you referencing something real, deliver anything promised, suggest the next touch a month out tied to them specifically.</pre>
   </div>
 </section>
@@ -202,7 +202,7 @@ When Mike asks for one of these by name, use the matching template. Always apply
     <pre class="prompt">Here's a business decision I'm weighing: [DESCRIBE IT — hire someone, drop a vendor, raise a fee, open a second location, spend on marketing]. Interview me one question at a time, no more than five questions, to understand what actually matters here. Then give me: the strongest honest case for each option, what you would do in my seat and why, and the one piece of information that would change your answer. Push back if I'm talking myself into something.</pre>
   </div>
   <h3>Agent outreach — filling the coffee calendar</h3>
-  <p>Growth for a title shop is relationships, and relationships start with a lunch. Claude turns "I should reach out to more agents" into messages actually sent: it drafts the asks in Mike's voice, plans the week's touches, and keeps the follow-ups from dying. (Coffee and lunch are normal marketing and RESPA-fine — the line that's never crossed is anything tied to referral volume.)</p>
+  <p>Growth for a title shop is relationships, and relationships start with a lunch. Claude turns "I should reach out to more agents" into messages actually sent: it drafts the asks in Michael's voice, plans the week's touches, and keeps the follow-ups from dying. (Coffee and lunch are normal marketing and RESPA-fine — the line that's never crossed is anything tied to referral volume.)</p>
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Coffee/lunch ask — new agent</span><button class="copy">Copy</button></div>
     <pre class="prompt">Draft a short message from me to [AGENT NAME], a real estate agent at [BROKERAGE], asking to grab coffee or lunch. Context: [HOW I KNOW OF THEM — met at a closing, mutual contact, saw their listing activity, "cold"]. My voice guide applies. Rules: it's about getting to know them and their business, not a pitch about Fortis; one specific, low-pressure ask ("coffee near your office some morning next week?"); under 90 words. Give me an email version and a text version, and one alternate opener in case the first feels off.</pre>
@@ -220,10 +220,10 @@ When Mike asks for one of these by name, use the matching template. Always apply
     <pre class="prompt">I just had coffee/lunch with [AGENT NAME]. Quick notes on what we talked about: [TWO OR THREE ROUGH NOTES — kids' names, their market focus, a problem they mentioned, anything I promised]. Draft: (1) a same-day thank-you text in my voice referencing something real from the conversation; (2) if I promised anything, the message or action that delivers it; (3) a suggested next touch and when — a month out, tied to something specific about them, not generic. Save the personal details in your reply so I can paste them into a note for next time.</pre>
   </div>
   <h3>Making the outreach automatic</h3>
-  <p>The target is zero-friction, not zero-Mike: everything arrives prepared; nothing goes out as him. With the connectors from Phase 1 on, the Monday routine looks like this:</p>
+  <p>The target is zero-friction, not zero-Michael: everything arrives prepared; nothing goes out as him. With the connectors from Phase 1 on, the Monday routine looks like this:</p>
   <ul>
     <li><strong>Microsoft 365 connector:</strong> the re-engage and follow-up drafts pull from the real Outlook history — no pasting.</li>
-    <li><strong>Times in the ask:</strong> if calendar access shows up in the connector, coffee asks go out with his real open slots; if not, Mike pastes his availability into the prompt — ten seconds either way.</li>
+    <li><strong>Times in the ask:</strong> if calendar access shows up in the connector, coffee asks go out with his real open slots; if not, Michael pastes his availability into the prompt — ten seconds either way.</li>
     <li><strong>The Monday trigger:</strong> look in the app for a scheduled-tasks feature — if his version has it, schedule "plan my outreach" for Monday 8 a.m. so the five drafts are waiting with his coffee. If not, a phone reminder that opens the app does the same job: the prompt is one library trigger away ("plan my outreach").</li>
     <li><strong>Never automated:</strong> the send. Ten minutes on Monday — read, tweak, send five messages — and the relationship pipeline stays warm all year.</li>
   </ul>
@@ -236,7 +236,7 @@ When Mike asks for one of these by name, use the matching template. Always apply
 <section class="phase">
   <span class="phase-tag">Phase 5 · The deal screen<span class="time">whenever a pitch shows up</span></span>
   <h2>A skeptical second opinion, on demand</h2>
-  <p>People pitch successful business owners constantly — syndications, franchises, "opportunities." The standing habit: <strong>before any money moves, the pitch goes through the screen.</strong> Claude doesn't say yes or no; it arms Mike with the questions and the red flags so the promoter has to earn it.</p>
+  <p>People pitch successful business owners constantly — syndications, franchises, "opportunities." The standing habit: <strong>before any money moves, the pitch goes through the screen.</strong> Claude doesn't say yes or no; it arms Michael with the questions and the red flags so the promoter has to earn it.</p>
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Screen an investment pitch</span><button class="copy">Copy</button></div>
     <pre class="prompt">Someone wants me to put money into the deal described in the attached materials (or pasted below). Be my skeptical partner — assume the pitch is designed to sell me, and stress-test it:
@@ -252,9 +252,9 @@ Do not tell me whether to invest — that's my call and my advisors'. Arm me.</p
 <section class="phase">
   <span class="phase-tag">Phase 6 · The playbook<span class="time">one page a week</span></span>
   <h2>Write down how Fortis actually runs</h2>
-  <p>Mike's long-term goal is a business that runs — and sells — without him in the middle. Qualia holds the data; it doesn't document the judgment. The playbook is that judgment written down: how the shop opens an order, saves an angry agent, wins a builder, handles a wire-fraud scare. One page a week, built by interview — Claude asks, Mike talks, a page comes out.</p>
+  <p>Michael's long-term goal is a business that runs — and sells — without him in the middle. Qualia holds the data; it doesn't document the judgment. The playbook is that judgment written down: how the shop opens an order, saves an angry agent, wins a builder, handles a wire-fraud scare. One page a week, built by interview — Claude asks, Michael talks, a page comes out.</p>
   <ul class="check">
-    <li>Pick a topic each week. Start with the thing only Mike knows how to do.</li>
+    <li>Pick a topic each week. Start with the thing only Michael knows how to do.</li>
     <li>Run the prompt, answer the questions out loud or typed — it takes ten minutes.</li>
     <li>Correct the page it writes, then save it to <strong>Project knowledge</strong> named <strong>Playbook — [topic]</strong>.</li>
     <li>In a year: a documented operation a manager can run from and a buyer can verify. That's the multiple.</li>
@@ -295,12 +295,12 @@ Interview me one question at a time, no more than eight questions. Dig for the j
       <li>AI drafts and advises. A human decides and sends. Every time.</li>
       <li>Never in a chat: SSNs, bank or account numbers, wire instructions.</li>
       <li>Never anything of value to a referral source — for referrals or reviews.</li>
-      <li>On deals: Claude arms the questions; Mike and his advisors make the call. Anything with a wire deadline gets a pause.</li>
+      <li>On deals: Claude arms the questions; Michael and his advisors make the call. Anything with a wire deadline gets a pause.</li>
     </ul>
   </div>
 </section>
 
-<footer>Prepared by Patrick Clark for Mike Palacios · Fortis Title &amp; Escrow · July 2026</footer>
+<footer>Prepared by Patrick Clark for Michael Palacios · Fortis Title &amp; Escrow · July 2026</footer>
 </main>
 
 <script>
