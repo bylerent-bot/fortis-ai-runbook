@@ -257,8 +257,14 @@ Flag any file scheduled to close where Wire Verified is unchecked. Keep it to wh
 
 <section class="phase">
   <span class="phase-tag">Phase 6 · The Qualia sync<span class="time">start today · live in 1–3 weeks</span></span>
-  <h2>Connect Qualia to the command center</h2>
-  <p>The end state: Qualia feeds Airtable automatically every 15–30 minutes, and nobody types a stage again. It's gated on one unknown — whether the Qualia plan includes API access — so the play is: check today, bridge with exports, build when the answer lands.</p>
+  <h2>Make it run itself</h2>
+  <p>The system automates in three tiers, and only the last one waits on Qualia:</p>
+  <ul>
+    <li><strong>Tier 1 — you ask, it works (today).</strong> The drafting and summarizing prompts. This tier stays human-triggered on purpose.</li>
+    <li><strong>Tier 2 — runs itself off Airtable (this week, no Qualia needed).</strong> Built in Make.com as soon as the base has real data: the 7 a.m. alert to Mike (stuck files, closings that aren't ready), the automatic review request when a file closes, web leads parsed into the base from TitleTap's notification emails, and the scheduled morning brief delivered by email — no more manual export. This is Patrick's build, and it does not wait for Qualia's answer.</li>
+    <li><strong>Tier 3 — Qualia feeds the base (1–3 weeks).</strong> Removes the last manual piece, the stage dropdowns. Gated on one unknown: whether the Qualia plan includes API access. So: check today, bridge with exports, build when the answer lands.</li>
+  </ul>
+  <p>What stays human forever, by design: approving and sending. Everything else is scheduled to disappear.</p>
 
   <h3>Step 1 — Check the Qualia console (today, 10 min)</h3>
   <ul class="check">
