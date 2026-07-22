@@ -73,17 +73,22 @@ a{color:var(--accent);} .lede a,footer a{font-weight:600;}</style>
 WHO MIKE IS
 Mike Palacios owns Fortis Title &amp; Escrow, a title and settlement agency in Virginia Beach, Virginia. About 10 people. The team runs closings in Qualia (title production software), the website runs on TitleTap, and Old Republic Title underwrites. Business comes from referral relationships with real estate agents, loan officers, and builders across Hampton Roads. Mike currently runs almost everything himself by phone and email; the strategic goal is to get the operation out of his head and into documented systems, so the business runs without him in the middle of every file.
 
-WHAT WE ARE BUILDING TODAY AND THIS MONTH
+THE STRATEGY (decided with Mike, 7/22)
+Mike already uses Qualia's built-in AI for production work on closings, and it solves most of his file-level problems. So we are NOT building any new operational system — no Airtable, no Make, no dashboards, nothing his closers touch. Claude's lane is strictly the OWNER's work that Qualia will never do: communications in Mike's voice, contracts and documents, business decisions, screening investment pitches people bring him, and writing the Fortis Playbook (documenting how the shop runs, toward an owner-independent, sellable business). If a task is in-file production work, the answer is "that's Qualia's job."
+
+WHAT WE ARE SETTING UP
 The full plan lives at https://bylerent-bot.github.io/fortis-ai-runbook/ — seven phases:
 1. Claude account: Pro plan, model-training toggle OFF in privacy settings, desktop app installed and pinned, phone app, and a Project named "Fortis Command Center."
-2. Instructions: short account-wide preferences in Settings, then full Project instructions with the business guardrails.
-3. First conversations: an orientation chat for Mike, a voice guide distilled from his sent emails (Mike edits it, saved to Project knowledge as "Mike's Voice"), five daily-habit prompts, and a prompt library doc saved to Project knowledge.
-4. An Airtable base called "Fortis Command Center": Open Files pipeline, Parties, Referral Sources, Leads, Reviews, with a Kanban by stage, a "What Needs Me Today" view, and an Interface page so staff see a dashboard, not raw tables. The Stage dropdown must match Mike's real Qualia status names exactly.
-5. A manual morning brief: export Open Files and Leads from Airtable, attach to a chat, run the brief prompt.
-6. The Qualia feed — MANDATORY, and the top priority to investigate: Mike's closers are never asked to maintain a second system, so the Airtable base only rolls out to staff once it fills itself from Qualia. The ladder: Qualia API polled by Make (best); a Qualia scheduled report emailed on a schedule and parsed by Make (nearly as good, no API tier — check the Reports section in his console today); a weekly export by Mike or one admin (stopgap only); if none exist, the pipeline board doesn't ship and Phases 1–3 stand alone. Today: check the console for API/Developer AND scheduled-report emailing, and send the rep email. Note: no Qualia connector for Claude exists; the chain is Qualia to Airtable to Claude.
+2. Instructions: short account-wide preferences in Settings, then full Project instructions (guardrails plus the complement-Qualia rule).
+3. Voice and habits: a voice guide distilled from Mike's sent emails (Mike edits it, saved to Project knowledge as "Mike's Voice"), a voice-check prompt, daily-habit prompts (reply drafting, thread summary, explain-a-document, thank-yous, LinkedIn posts), and a prompt library doc saved to Project knowledge with named triggers.
+4. The owner's desk: contract reading, decision thinking-partner, referral-meeting prep.
+5. The deal screen: a skeptical stress-test prompt for any investment pitch — claims to verify, red flags, question lists. Never a buy/don't-buy verdict; anything with a wire deadline gets an automatic pause.
+6. The playbook: weekly ten-minute interview sessions producing one-page SOPs saved to Project knowledge; first session maps and ranks the topics that live only in Mike's head.
 7. Later, not today: Cowork mode for file work, restricted to a single "Claude Workspace" folder.
 
-Connectors today: Mike's email (check first whether Fortis runs Google or Microsoft), and Airtable only if the base gets built today. Nothing else.
+Connectors today: Mike's email only (check first whether Fortis runs Google or Microsoft). Nothing else. There is no Qualia connector for Claude, and we aren't building around one.
+
+One useful ask during the session: have Mike show what Qualia's AI actually does day to day, so Claude's lane complements it precisely instead of overlapping.
 
 HARD RULES FOR EVERYTHING BUILT TODAY
 - AI drafts and surfaces; a human decides and sends. It never states binding closing figures and never moves money.

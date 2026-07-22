@@ -13,7 +13,7 @@
 }
 @media (prefers-color-scheme: dark){
   :root{ --paper:#141a17; --ink:#e6ebe7; --muted:#94a39a; --accent:#5cb98c; --accent-ink:#0d1411;
-    --card:#1b2320; --line:#2c3733; --code-bg:#10161320; --code-bg:#10201a; --warn-bg:#2a2410; --warn-line:#8a6f2a; --warn-ink:#e0c26a; --done:#5cb98c; }
+    --card:#1b2320; --line:#2c3733; --code-bg:#10201a; --warn-bg:#2a2410; --warn-line:#8a6f2a; --warn-ink:#e0c26a; --done:#5cb98c; }
 }
 :root[data-theme="light"]{ --paper:#faf9f5; --ink:#1c2420; --muted:#5b6a62; --accent:#1f5c40; --accent-ink:#ffffff;
   --card:#ffffff; --line:#dde3de; --code-bg:#f0f3ef; --warn-bg:#fdf6e7; --warn-line:#e4c878; --warn-ink:#6b5316; --done:#2e7d52; }
@@ -56,11 +56,11 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
 <main>
 <header class="site">
   <p class="eyebrow">Fortis Title &amp; Escrow · AI Setup Runbook</p>
-  <h1>Getting Claude working for Fortis, step by step</h1>
-  <p class="lede">Work top to bottom. Every gray box is a prompt — hit Copy, paste it into Claude, and follow what comes back. Phases 1–3 happen today; Phases 4–6 are this week. Mid-session help lives on the <a href="https://bylerent-bot.github.io/fortis-ai-runbook/copilot.html" style="color:var(--accent);font-weight:600;">Setup Copilot page</a>.</p>
+  <h1>Claude for the owner, Qualia for the files</h1>
+  <p class="lede">Qualia's AI already works the closings — this setup doesn't touch that, and it adds no systems and asks nothing of the team. This is one assistant for Mike: his voice, his decisions, his deals, his playbook. Work top to bottom; every gray box is a prompt — hit Copy, paste into Claude, follow what comes back. Phases 1–3 are today's setup; Phases 4–6 are how Mike uses it every week. Mid-session help lives on the <a href="https://bylerent-bot.github.io/fortis-ai-runbook/copilot.html" style="color:var(--accent);font-weight:600;">Setup Copilot page</a>.</p>
 </header>
 
-<div class="note"><strong>Two rules before anything else.</strong> (1) No client Social Security numbers, bank account numbers, or wire instructions go into any AI chat — ever. Names, addresses, file numbers, and stages are fine. (2) The AI drafts; a person sends. It never states binding closing figures and never touches money.</div>
+<div class="note"><strong>Two rules before anything else.</strong> (1) No client Social Security numbers, bank account numbers, or wire instructions go into any AI chat — ever. Names, addresses, file numbers, and stages are fine. (2) The AI drafts and advises; a person decides and sends. It never states binding closing figures and never touches money.</div>
 
 <section class="phase">
   <span class="phase-tag">Phase 1 · Account &amp; app<span class="time">~20 min</span></span>
@@ -68,10 +68,9 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
   <ul class="check">
     <li>Go to <strong>claude.ai</strong>, create an account with Mike's work email, and upgrade to the <strong>Pro plan</strong>.</li>
     <li>Open <strong>Settings → Privacy</strong> and make sure the option to use chats for model training is <strong>turned off</strong>.</li>
-    <li>Download the <strong>Claude desktop app</strong> from claude.ai/download, install it, and sign in with the same account. This is where all the day-to-day work happens — pin it to the dock or taskbar so it's one click away.</li>
-    <li>For now, use the app as a chat window only — hold off on Cowork mode and file access until Phase 7.</li>
+    <li>Download the <strong>Claude desktop app</strong> from claude.ai/download, install it, sign in, and pin it to the Dock.</li>
     <li>In the app, click <strong>Projects → New Project</strong> and name it <strong>Fortis Command Center</strong>. Every work chat happens inside this Project.</li>
-    <li>Grab the Claude app on Mike's <strong>phone</strong> too, same login — the Project and its rules follow him to closings.</li>
+    <li>Grab the Claude app on Mike's <strong>phone</strong> too, same login — it follows him to closings and lunches.</li>
   </ul>
 </section>
 
@@ -91,34 +90,28 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
   <p>In the Fortis Command Center Project, click <strong>Set project instructions</strong> and paste this. It becomes the standing brief for every conversation inside the Project.</p>
   <div class="promptcard">
     <div class="bar"><span class="label">Paste into: Project instructions</span><button class="copy">Copy</button></div>
-    <pre class="prompt">You are the executive assistant for Fortis Title &amp; Escrow, a title and settlement agency in Virginia Beach, Virginia, owned by Mike Palacios. The team runs closings in Qualia (title production software) and the website runs on TitleTap. Roughly 10 people. Clients are home buyers and sellers; referral business comes from real estate agents, loan officers, and builders across Hampton Roads.
+    <pre class="prompt">You are the executive assistant for Mike Palacios, owner of Fortis Title &amp; Escrow, a title and settlement agency in Virginia Beach, Virginia. Roughly 10 people. The team runs closings in Qualia, which has its own AI for production work — you do NOT duplicate Qualia. Your lane is the owner's work: communications in Mike's voice, reading contracts and documents, thinking through business decisions, screening deals people pitch him, and building the Fortis Playbook that documents how the shop runs.
 
-Your job: help Mike and the team run the business. Draft communications, summarize documents and email threads, surface what needs attention, and answer questions about the pipeline when data is provided.
+Context: clients are home buyers and sellers; business comes from referral relationships with real estate agents, loan officers, and builders across Hampton Roads. Mike's long-term goal is a documented, owner-independent business.
 
 Hard rules, always:
 1. You are advisory only. Never state binding closing figures, never authorize a wire or any movement of money.
 2. On title, closing, or legal questions, recommend a licensed human review. Never give legal advice.
-3. RESPA compliance: never propose giving anything of value to a referral source in exchange for referrals. Referral data is internal analytics only. Review requests and thank-you notes must never offer or imply anything in return.
+3. RESPA compliance: never propose giving anything of value to a referral source in exchange for referrals. Review requests and thank-you notes must never offer or imply anything in return.
 4. Never ask for or repeat Social Security numbers, bank account numbers, or wire instructions. If they appear in pasted material, do not repeat them back.
-5. Be concise, specific, and plain-spoken. Reference files by file number and property address. If data is missing, say so rather than guessing.
+5. On investments: you are not a financial advisor. Help Mike verify claims, spot red flags, and build question lists — never tell him to invest or not invest.
+6. Be concise, specific, and plain-spoken. If data is missing, say so rather than guessing.
 
-Voice for drafts: professional, warm, direct. Short sentences. No corporate filler.</pre>
+Voice for drafts: follow the "Mike's Voice" guide in this project's knowledge for anything Mike sends under his own name. Team drafts signed "Fortis Title &amp; Escrow" stay in a standard professional voice.</pre>
   </div>
 </section>
 
 <section class="phase">
-  <span class="phase-tag">Phase 3 · First conversation<span class="time">~20 min</span></span>
-  <h2>Mike's orientation chat</h2>
-  <p>Start a new chat in the Project and paste this. It turns the first session into a guided tour built around his actual work.</p>
-  <div class="promptcard">
-    <div class="bar"><span class="label">Prompt · Orientation</span><button class="copy">Copy</button></div>
-    <pre class="prompt">I'm Mike, the owner. This is my first real session with you. I currently do almost everything by phone and email and I want to learn what you can take off my plate.
-
-Interview me one question at a time, no more than six questions, about my typical day and where my time goes. Then give me a short list of the 5 tasks you can help with immediately, ranked by time saved, with a one-line example of how I'd ask you for each. Keep the whole thing plain and short.</pre>
-  </div>
+  <span class="phase-tag">Phase 3 · Voice &amp; daily habits<span class="time">~30 min</span></span>
+  <h2>Make it sound like Mike, then make it useful daily</h2>
 
   <h3>Teach it Mike's voice</h3>
-  <p>Before the daily habits, spend ten minutes making drafts sound like Mike instead of like an AI. Claude reads a stack of his real sent emails, writes down the patterns as a short voice guide, Mike corrects it, and the corrected version gets saved in the Project. Every draft after that uses it.</p>
+  <p>Claude reads a stack of his real sent emails, writes down the patterns as a short voice guide, Mike corrects it, and the corrected version gets saved in the Project. Every draft after that uses it.</p>
   <ul class="check">
     <li>If the email connector is on: run the first prompt below as-is.</li>
     <li>If not: copy 10–15 of Mike's sent emails into the chat first (a mix — agents, clients, lenders; skip any containing account numbers), then run the same prompt.</li>
@@ -130,11 +123,6 @@ Interview me one question at a time, no more than six questions, about my typica
     <pre class="prompt">Read 15 emails I've sent to real estate agents, lenders, and clients (from my sent mail, or the samples I've pasted below). Ignore any sensitive numbers. Then write a one-page voice guide describing how I actually write, covering: how I open and close emails, typical sentence length, how formal or casual I am, phrases I use often, how I deliver bad news or push back, and how I sign off. Format it as instructions to a writing assistant ("Mike opens with..., Mike never says..."). End with three things I apparently never do, so drafts avoid them. I'll correct anything you get wrong before we save it.</pre>
   </div>
   <div class="promptcard">
-    <div class="bar"><span class="label">Then add one line to: Project instructions</span><button class="copy">Copy</button></div>
-    <pre class="prompt">When drafting anything Mike will send under his own name, follow the "Mike's Voice" guide in this project's knowledge. Team drafts signed "Fortis Title &amp; Escrow" stay in the standard professional voice.</pre>
-  </div>
-
-  <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Voice check (run on any draft)</span><button class="copy">Copy</button></div>
     <pre class="prompt">Check the draft below against the "Mike's Voice" guide in this project. Go line by line and flag anything that doesn't sound like me — words I wouldn't use, sentences that are too stiff or too long, anything that smells like AI wrote it. Then give me the corrected version. Finally, show the first two sentences side by side: the generic way an assistant would write them, and my way, so I can see the difference.
 
@@ -142,201 +130,121 @@ Interview me one question at a time, no more than six questions, about my typica
   </div>
 
   <h3>The daily habits</h3>
-  <p>These are the prompts the team uses every day. No setup, no other software — just paste and fill in the blanks.</p>
-
+  <p>Paste-and-fill prompts for everyday work. If Qualia's AI already handles one of these (client status updates, for example), skip it here — no duplication.</p>
   <div class="promptcard">
-    <div class="bar"><span class="label">Prompt · Agent status update</span><button class="copy">Copy</button></div>
-    <pre class="prompt">Draft a short, friendly status email to [AGENT NAME] about file [FILE #] at [PROPERTY ADDRESS]. Current stage: [STAGE]. Next step: [NEXT STEP]. Closing date: [DATE]. Tone: professional, warm, reassuring. Do not state dollar figures. Sign as Fortis Title &amp; Escrow. Under 120 words. Also give me a 2-sentence text message version.</pre>
-  </div>
+    <div class="bar"><span class="label">Prompt · Draft any email or reply</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Draft a reply from me to the email below. What I want to say, roughly: [YOUR POINT IN ONE ROUGH SENTENCE]. Use my voice guide. Keep it short.
 
+[PASTE THE EMAIL]</pre>
+  </div>
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Summarize a long email thread</span><button class="copy">Copy</button></div>
-    <pre class="prompt">Below is an email thread about one of our files. Summarize it for me: (1) what's been decided, (2) what's still open, (3) who owes the next move, (4) anything that looks like a risk to the closing date. Then draft the reply I should send. Remove any SSNs or account numbers if they appear.
+    <pre class="prompt">Below is an email thread. Summarize it for me: (1) what's been decided, (2) what's still open, (3) who owes the next move, (4) anything that looks like a risk. Then draft the reply I should send. Remove any SSNs or account numbers if they appear.
 
-[PASTE THE THREAD HERE]</pre>
+[PASTE THE THREAD]</pre>
   </div>
-
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Explain a document</span><button class="copy">Copy</button></div>
-    <pre class="prompt">I'm attaching a document from one of our files. Explain what it is and what it means in plain English, flag anything unusual a title agent should look at twice, and list any dates or deadlines it creates. This is for my understanding only — a licensed person makes the actual call.</pre>
+    <pre class="prompt">I'm attaching a document. Explain what it is and what it means in plain English, flag anything unusual worth a second look, and list any dates or deadlines it creates. This is for my understanding only — a licensed person makes the actual call.</pre>
   </div>
-
-  <div class="promptcard">
-    <div class="bar"><span class="label">Prompt · Post-closing review request</span><button class="copy">Copy</button></div>
-    <pre class="prompt">Draft a warm email and a shorter text asking [CLIENT NAME] for an honest Google review of their closing experience with Fortis. Include this review link: [LINK]. Do not offer anything in return. Two sentences for the text, about 80 words for the email.</pre>
-  </div>
-
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · Referral thank-you (RESPA-safe)</span><button class="copy">Copy</button></div>
-    <pre class="prompt">Draft a brief, genuine thank-you note to [REFERRAL SOURCE] for trusting Fortis with [CLIENT]'s closing. Relationship tone, personal. Do not reference referral volume and do not offer or imply anything of value. Under 80 words.</pre>
+    <pre class="prompt">Draft a brief, genuine thank-you note to [REFERRAL SOURCE] for trusting Fortis with [CLIENT]'s closing. Relationship tone, personal, my voice. Do not reference referral volume and do not offer or imply anything of value. Under 80 words.</pre>
+  </div>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · LinkedIn post</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Draft a LinkedIn post from me about [TOPIC — e.g., a closing-day story, wire-fraud warning for buyers, a market observation]. My voice guide applies. Under 120 words, no hashtag pile, no "I'm excited to announce," ends with something a real estate agent or homebuyer would actually find useful. Give me two versions with different angles.</pre>
   </div>
 
-  <h3>Where these prompts live permanently</h3>
-  <p>Don't make the team hunt for this page. In the Project, click <strong>Add content → Create a doc</strong> (project knowledge), name it <strong>Fortis Prompt Library</strong>, and paste the block below. From then on, nobody pastes the long prompts again — anyone in the Project just types things like <em>"status update for file 1234 to Jane Smith, stage Commitment Issued, closing 8/15"</em> and Claude applies the matching template and its rules automatically.</p>
+  <h3>Save the library</h3>
+  <p>In the Project, click <strong>Add content → Create a doc</strong>, name it <strong>Fortis Prompt Library</strong>, and paste this. After that, nobody pastes long prompts — just ask by name ("thank-you for Jane Smith").</p>
   <div class="promptcard">
     <div class="bar"><span class="label">Paste into: Project knowledge · "Fortis Prompt Library"</span><button class="copy">Copy</button></div>
     <pre class="prompt">FORTIS PROMPT LIBRARY
-When someone asks for one of these by name, use the matching template. Always apply the Project's standing rules (no dollar figures in drafts, no legal advice, RESPA-safe, no SSNs or account numbers).
+When Mike asks for one of these by name, use the matching template. Always apply the Project's standing rules and the Mike's Voice guide for anything he sends himself.
 
-1. STATUS UPDATE — "status update for file [#]"
-Short, friendly status email to the agent or lender on the file. Include current stage, next step, closing date. Warm, reassuring, under 120 words, signed Fortis Title &amp; Escrow. Also provide a 2-sentence text version.
-
-2. THREAD SUMMARY — "summarize this thread"
-From a pasted email thread: what's decided, what's open, who owes the next move, any risk to the closing date. Then draft the reply. Strip any SSNs or account numbers.
-
-3. EXPLAIN A DOCUMENT — "explain this document"
-Plain-English explanation of an attached file document, anything unusual worth a second look, and any dates or deadlines it creates. Understanding only; a licensed person makes the call.
-
-4. REVIEW REQUEST — "review request for [client]"
-Warm email (~80 words) plus 2-sentence text asking for an honest Google review. Include the review link. Never offer anything in return.
-
-5. REFERRAL THANK-YOU — "thank-you for [referral source]"
-Brief, genuine, personal note. Never reference referral volume, never offer or imply anything of value. Under 80 words.
-
-6. MORNING BRIEF — "morning brief" (with the Airtable export attached)
-Structure: Today's closings and what each needs · Needs you today with reasons · Watch (closing in 3–5 days, not clear) · New/unworked leads with age · One nudge. Flag closings where Wire Verified is unchecked. No filler.</pre>
+1. REPLY — "reply to this": draft the reply from Mike's rough point, his voice, short.
+2. THREAD SUMMARY — "summarize this thread": decided / open / who owes next move / risks, then the draft reply. Strip sensitive numbers.
+3. EXPLAIN A DOCUMENT — "explain this": plain English, unusual items, dates and deadlines created. Understanding only.
+4. THANK-YOU — "thank-you for [name]": genuine, personal, RESPA-safe, under 80 words.
+5. LINKEDIN — "linkedin post about [topic]": Mike's voice, under 120 words, useful to agents or buyers, two versions.
+6. CONTRACT READ — "read this contract": what it commits us to, money and dates, auto-renewals, risky clauses, questions before signing, what a lawyer should review. Not legal advice.
+7. DECISION — "think this through with me": interview one question at a time (max 5), then strongest case each way, a recommendation, and what would change it.
+8. DEAL SCREEN — "screen this deal": skeptical pass on any investment pitch — claims to verify, red flags, the question list, documents to demand. Never a buy/don't-buy verdict.
+9. MEETING PREP — "prep me for [name]": who they are, our history if known, three talking points, questions to ask, follow-up note skeleton. RESPA-safe.
+10. PLAYBOOK — "playbook session on [topic]": interview one question at a time (max 8), then a one-page plain-English SOP for the Fortis Playbook. Mike corrects, then save.</pre>
   </div>
 </section>
 
 <section class="phase">
-  <span class="phase-tag">Phase 4 · The command center<span class="time">~1 hr, this week</span></span>
-  <h2>Build the Airtable hub</h2>
-  <p>One dashboard that answers: what's happening, what needs me today, and how's marketing. Create a free Airtable account at <strong>airtable.com</strong> (same work email), then paste this into Claude — it walks you through the whole build and generates the starter files.</p>
+  <span class="phase-tag">Phase 4 · The owner's desk<span class="time">use weekly</span></span>
+  <h2>The work that happens outside Qualia</h2>
+  <p>Qualia works the closings. This is everything else that lands on an owner's desk — contracts, vendors, decisions, relationships. This is where Claude earns its seat.</p>
   <div class="promptcard">
-    <div class="bar"><span class="label">Prompt · Build the base</span><button class="copy">Copy</button></div>
-    <pre class="prompt">I'm building an Airtable base called "Fortis Command Center" for our title agency. Walk me through it step by step, one table at a time, and wait for me to say "done" before moving to the next. At the end, generate an importable starter CSV for each table with 3 example rows I can replace with real files.
-
-The schema:
-
-TABLE 1 — Open Files (the core pipeline, one row per closing):
-File # (primary, our Qualia order ID), Property Address, Stage (single select: Order Received / Title Search / Commitment Issued / Clear to Close / Scheduled / Closed / Post-Closing / On Hold), Transaction Type (Purchase / Refi / Commercial / Construction), Closing Date (date), Title Commitment Due (date), Earnest Money Received (checkbox), Buyer and Seller (links to Parties), Referral Source (link to Referral Sources), Assigned To (single select of our staff), Wire Verified (checkbox), Days in Stage (formula from a Last Stage Change date field), Needs Attention (formula: TRUE if closing within 3 days and not yet Clear to Close or Scheduled, OR more than 7 days in stage, OR no earnest money past Order Received), Notes.
-
-TABLE 2 — Parties: Name, Role (Buyer/Seller), Email, Phone, Military (checkbox), linked Files.
-
-TABLE 3 — Referral Sources: Name, Type (Agent / Loan Officer / Builder / Attorney / Other), Company, Email, Phone, Orders YTD (rollup count from Open Files), Last Order (rollup max date), Last Touch (date), Notes.
-
-TABLE 4 — Leads: Name, Source (Order Form / Net-Sheet / Quote / Call / Other), Received (date), Status (New / Working / Won / Lost), Worked By, Converted to File (link), Notes.
-
-TABLE 5 — Reviews: Reviewer, Platform (Google / Facebook / Other), Rating, Date, Requested (checkbox), Posted (checkbox).
-
-Views to build: a Kanban of Open Files grouped by Stage; "What Needs Me Today" (Needs Attention = TRUE, sorted by Closing Date); "Closing This Week" (calendar); a Referral Leaderboard sorted by Orders YTD.
-
-After the tables and views work, walk me through building one Airtable Interface page: a dashboard showing the pipeline Kanban, the What Needs Me Today list, and the closing-this-week calendar, so the team sees a clean screen instead of raw tables.
-
-Important: before we start, ask me for the exact order status names we use in Qualia so the Stage options match what my processors already see.</pre>
+    <div class="bar"><span class="label">Prompt · Read a contract or agreement</span><button class="copy">Copy</button></div>
+    <pre class="prompt">I'm attaching a contract/agreement someone wants me to sign (vendor, lease, service agreement, renewal). In plain English: (1) what it commits us to, in money and obligations; (2) every date that matters — term, auto-renewal, cancellation window, price escalations; (3) the clauses that favor the other side or could bite us later; (4) the questions I should ask before signing; (5) anything a lawyer should look at. This is preparation, not legal advice.</pre>
   </div>
-
-  <h3>The rollout rule: nothing is asked of the closers</h3>
-  <p>The team already has a system — Qualia. They are never asked to maintain a second one. So the base gets <strong>built</strong> now (with a sample import, so Mike sees the dashboard working), but it doesn't get <strong>rolled out</strong> to staff until the Qualia feed (Phase 6) is filling it automatically. The first time the team sees it, it should already know everything.</p>
-  <ul>
-    <li><strong>Closers/processors:</strong> nothing. Ever. They work in Qualia as always.</li>
-    <li><strong>Until the feed is live:</strong> Mike or one admin refreshes the data from a Qualia export — five minutes, and only as a stopgap.</li>
-    <li><strong>After the feed:</strong> nobody touches it. Leads and reviews arrive by automation too.</li>
-  </ul>
-</section>
-
-<section class="phase">
-  <span class="phase-tag">Phase 5 · The daily brief<span class="time">~10 min, daily</span></span>
-  <h2>The morning brief</h2>
-  <p>Each morning, export the Open Files and Leads tables from Airtable as CSV (or copy the grid), attach or paste into a new chat in the Project, and run this. Later this gets automated; the manual version proves the value first.</p>
   <div class="promptcard">
-    <div class="bar"><span class="label">Prompt · Daily brief</span><button class="copy">Copy</button></div>
-    <pre class="prompt">Here is today's data from our command center (attached / pasted below). Write my morning brief in this structure, plain and short:
-
-1. TODAY'S CLOSINGS — each with what it still needs.
-2. NEEDS YOU TODAY — files flagged Needs Attention, with why in a few words each.
-3. WATCH — closings in the next 3–5 days not yet clear to close.
-4. LEADS — new or unworked leads and how old they are.
-5. ONE NUDGE — the single most important thing for me to personally do today.
-
-Flag any file scheduled to close where Wire Verified is unchecked. Keep it to what matters. No filler.
-
-[ATTACH OR PASTE THE EXPORT]</pre>
+    <div class="bar"><span class="label">Prompt · Think through a decision</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Here's a business decision I'm weighing: [DESCRIBE IT — hire someone, drop a vendor, raise a fee, open a second location, spend on marketing]. Interview me one question at a time, no more than five questions, to understand what actually matters here. Then give me: the strongest honest case for each option, what you would do in my seat and why, and the one piece of information that would change your answer. Push back if I'm talking myself into something.</pre>
+  </div>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Prep for a referral partner meeting</span><button class="copy">Copy</button></div>
+    <pre class="prompt">I'm meeting [NAME], a [real estate agent / loan officer / builder] at [COMPANY]. Here's what I know about them and our history: [A SENTENCE OR TWO, OR "not much"]. Give me: three talking points that are about their business, not mine; two questions worth asking; and a short follow-up note skeleton for after. Keep it relationship and service quality — nothing that ties value to referrals.</pre>
   </div>
 </section>
 
 <section class="phase">
-  <span class="phase-tag">Phase 6 · The Qualia sync<span class="time">start today · live in 1–3 weeks</span></span>
-  <h2>Make it run itself — the feed is the whole game</h2>
-  <p>Standing decision: the closers are never asked to feed a second system. That makes the Qualia-to-Airtable feed <strong>mandatory</strong> — the pipeline dashboard and its automations go live only when the base fills itself. Finding the feed path is the top priority of this phase, and there's a ladder of ways to get it:</p>
-  <ul>
-    <li><strong>Best — the Qualia API.</strong> Make polls it every 15–30 minutes and updates the base. Fully automatic.</li>
-    <li><strong>Nearly as good — a scheduled report.</strong> If Qualia's reporting can email a report of open orders on a schedule (check this in the console today), Make catches that email and updates the base automatically. No API tier needed, zero human touch.</li>
-    <li><strong>Stopgap only — a weekly export by Mike or one admin.</strong> Five minutes, owner-level, never the closers. Acceptable while waiting on the rep, not as a way of life.</li>
-    <li><strong>If none of these exist:</strong> the pipeline board doesn't get built. The AI layer (Phases 1–3) and the lead/review automations still stand on their own.</li>
-  </ul>
-  <p>What runs automatically once the feed is live, all built in Make.com: the base updating itself, the 7 a.m. alert to Mike (stuck files, closings that aren't ready), the review request when a file closes, web leads parsed in from TitleTap's notification emails, and the morning brief delivered by email. What stays human forever, by design: approving and sending.</p>
+  <span class="phase-tag">Phase 5 · The deal screen<span class="time">whenever a pitch shows up</span></span>
+  <h2>A skeptical second opinion, on demand</h2>
+  <p>People pitch successful business owners constantly — syndications, franchises, "opportunities." The standing habit: <strong>before any money moves, the pitch goes through the screen.</strong> Claude doesn't say yes or no; it arms Mike with the questions and the red flags so the promoter has to earn it.</p>
+  <div class="promptcard">
+    <div class="bar"><span class="label">Prompt · Screen an investment pitch</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Someone wants me to put money into the deal described in the attached materials (or pasted below). Be my skeptical partner — assume the pitch is designed to sell me, and stress-test it:
+1. List the key claims (price, returns, occupancy, track record, timeline) and for each, say how I could independently verify it — public records, an appraisal, a third party.
+2. Flag anything that matches known patterns of weak or predatory deals: pressure deadlines, guaranteed-sounding returns, fees that contradict the pitch, thin sponsor track record, missing documents.
+3. Give me the exact list of questions to send the promoter, and the documents I should demand before any further conversation.
+4. Tell me what an experienced investor would want to see that is NOT in these materials.
+Do not tell me whether to invest — that's my call and my advisors'. Arm me.</pre>
+  </div>
+  <p>One more habit that costs nothing: anything with a wire deadline attached gets an automatic pause. Real deals survive a week of questions; bad ones can't afford one.</p>
+</section>
 
-  <h3>Step 1 — Check the Qualia console (today, 15 min — do this early in the visit)</h3>
+<section class="phase">
+  <span class="phase-tag">Phase 6 · The playbook<span class="time">one page a week</span></span>
+  <h2>Write down how Fortis actually runs</h2>
+  <p>Mike's long-term goal is a business that runs — and sells — without him in the middle. Qualia holds the data; it doesn't document the judgment. The playbook is that judgment written down: how the shop opens an order, saves an angry agent, wins a builder, handles a wire-fraud scare. One page a week, built by interview — Claude asks, Mike talks, a page comes out.</p>
   <ul class="check">
-    <li>Log into Qualia as admin and look for anything labeled <strong>API, Developer, Integrations, or Marketplace</strong>. A place to generate an <strong>API key</strong> means the gate is already open.</li>
-    <li>Open Qualia's <strong>Reports</strong> section: can a report of open orders (with status and closing date) be <strong>emailed on a schedule</strong>? If yes, that's the feed — rung two of the ladder, available with no API tier.</li>
-    <li>Either way, note the exact <strong>order status names</strong> Qualia shows — the Airtable Stage dropdown must match them word for word.</li>
+    <li>Pick a topic each week. Start with the thing only Mike knows how to do.</li>
+    <li>Run the prompt, answer the questions out loud or typed — it takes ten minutes.</li>
+    <li>Correct the page it writes, then save it to <strong>Project knowledge</strong> named <strong>Playbook — [topic]</strong>.</li>
+    <li>In a year: a documented operation a manager can run from and a buyer can verify. That's the multiple.</li>
   </ul>
-
-  <h3>Step 2 — Email the Qualia rep (today, 10 min)</h3>
-  <p>Send this regardless of what the console shows — the webhook and pricing answers matter either way, and the response is the slow part.</p>
   <div class="promptcard">
-    <div class="bar"><span class="label">Prompt · Qualia API email</span><button class="copy">Copy</button></div>
-    <pre class="prompt">Draft a short email to our Qualia account rep, [REP NAME OR "our account team"], from Mike Palacios at Fortis Title &amp; Escrow. Ask three things: (1) does our current plan include API access, and if not, what tier and cost adds it; (2) does the API support reading open orders with their status/milestone, parties, and closing dates; (3) do they support event notifications (webhooks) or is scheduled polling the way to pull updates. Context: we're building an internal reporting dashboard, not replacing Qualia. Professional and brief.</pre>
-  </div>
+    <div class="bar"><span class="label">Prompt · Playbook session</span><button class="copy">Copy</button></div>
+    <pre class="prompt">We're writing the Fortis Playbook — documenting how this shop actually runs, one page at a time. Today's topic: [E.G., how we handle an agent who's upset about a delay / how we open and assign a new order / how we spot and stop a wire-fraud attempt / how we win a new builder relationship].
 
-  <h3>Step 3 — The bridge: weekly export sync (today, and every Friday until the API is live)</h3>
-  <p>Qualia can export order data; Airtable imports CSV straight into Open Files. That's a manual sync — same data, on demand instead of every 15 minutes. Do it once together today so the habit exists.</p>
+Interview me one question at a time, no more than eight questions. Dig for the judgment calls, not just the steps — what I look for, when I escalate, what a new hire would get wrong. Then write a one-page SOP in plain English with: when this situation comes up, the steps, the judgment calls and how to make them, and what "done right" looks like. Title it "Playbook — [topic]". I'll correct it before we save it.</pre>
+  </div>
   <div class="promptcard">
-    <div class="bar"><span class="label">Prompt · Import a Qualia export</span><button class="copy">Copy</button></div>
-    <pre class="prompt">I have a CSV export of open orders from Qualia (attached) and an Airtable base with an Open Files table whose fields are: File #, Property Address, Stage, Transaction Type, Closing Date, Title Commitment Due, Earnest Money Received, Referral Source, Assigned To, Wire Verified, Notes.
-
-Walk me through importing this into Airtable so that existing rows update by File # instead of duplicating, and tell me which columns map to which fields. Flag any orders in the export that are missing a closing date or a stage, and list any rows in Airtable that no longer appear in the export (likely closed) so I can update them.</pre>
+    <div class="bar"><span class="label">Prompt · First session — map the topics</span><button class="copy">Copy</button></div>
+    <pre class="prompt">Before we write any playbook pages: interview me for ten minutes, one question at a time, about what parts of Fortis live only in my head — the things that would break or wobble if I took a month off. Then give me a ranked list of 10–15 playbook topics, most-critical first, so we know what to write in what order.</pre>
   </div>
-
-  <h3>Step 4 — The real build (when API access is confirmed)</h3>
-  <ol>
-    <li>Generate the API key in Qualia (admin console).</li>
-    <li>Create a <strong>Make.com</strong> account. Build the scenario: schedule every 15–30 min → pull open orders from the Qualia API → upsert into Open Files by File # → stamp the stage-change date.</li>
-    <li>Map Qualia's status names to the Stage dropdown one-to-one.</li>
-    <li>Add the two follow-on automations: the 7 a.m. deadline alert to Mike, and the post-closing review request.</li>
-    <li>Run manual entry and the sync in parallel for one week; when they agree, staff stop updating stages by hand.</li>
-  </ol>
-  <p><strong>Timeline:</strong> if the console already shows API access, this is a few focused hours — realistically a second visit this week. If it needs a plan upgrade, expect one to three weeks, mostly waiting on the rep, and the Friday export bridge covers the gap. This step is Patrick's build, not Mike's — Mike's only jobs are the rep email and the yes/no on any API-tier cost.</p>
 </section>
 
 <section class="phase">
   <span class="phase-tag">Phase 7 · Later — Cowork<span class="time">a few weeks in, once the habits stick</span></span>
   <h2>The upgrade: Claude that works with your files</h2>
-  <p>Everything above happens in a chat window: you bring things to Claude by pasting or attaching them. <strong>Cowork</strong> is the next level. It's a mode in the Claude desktop app where Claude can open a folder on the computer, read what's inside, and produce real documents — Word files, spreadsheets — instead of just chat replies.</p>
-  <p>In plain terms: today you copy things <em>to</em> Claude. With Cowork, Claude comes <em>to your files</em>.</p>
-
-  <h3>What it's for at Fortis</h3>
-  <ul>
-    <li><strong>Check a closing folder.</strong> Point it at one file's folder and ask: "Read everything in here. What's missing, and what deadlines do these documents create?"</li>
-    <li><strong>Skip the export step.</strong> With the Airtable connector switched on, ask "what needs me today?" and Claude reads the command center directly — no CSV.</li>
-    <li><strong>Make real documents.</strong> The weekly marketing readout as a Word doc, a batch of template letters, a summary spreadsheet — finished files, not text to copy out of a chat.</li>
-  </ul>
-
-  <h3>Why wait a few weeks</h3>
-  <p>Two reasons. First, one new tool per visit is the pace that sticks — the chat habits come first. Second, Cowork can see files, and closing folders contain Social Security numbers and bank details. Before it ever touches real client files, the boundaries below get set on purpose, not in a hurry.</p>
-
-  <h3>Setup, when the time comes</h3>
+  <p>Everything above happens in a chat window. <strong>Cowork</strong> is a mode in the desktop app where Claude can open a folder on the computer, read what's inside, and produce real documents — Word files, spreadsheets — instead of chat replies. Useful later for reviewing a closing folder's documents in one pass, or turning playbook pages into a formatted manual.</p>
   <ul class="check">
-    <li>The desktop app is already installed from Phase 1 — nothing is rebuilt; the Project, its instructions, and the prompt library carry over.</li>
-    <li>Open <strong>Cowork</strong> mode in the app (this is the step that waited).</li>
-    <li>Make one folder on the computer called <strong>Claude Workspace</strong>. That is the only folder Claude gets pointed at. To have Claude look at a closing file, copy that file's documents into the workspace first — client folders themselves stay off limits.</li>
-    <li>Switch on the <strong>Airtable connector</strong> in the app's settings and connect the Fortis Command Center base.</li>
-    <li>Run the first task together on a <strong>closed</strong> file (paste the prompt below), so the first live test has nothing at stake.</li>
+    <li>Wait until the chat habits are real — one new tool at a time.</li>
+    <li>Make one folder called <strong>Claude Workspace</strong>; that's the only folder Claude gets pointed at. Copy documents in; client folders stay off limits.</li>
+    <li>Run the first task on a <strong>closed</strong> file, together, so nothing is at stake.</li>
   </ul>
-
   <div class="promptcard">
     <div class="bar"><span class="label">Prompt · First Cowork task (use a closed file)</span><button class="copy">Copy</button></div>
     <pre class="prompt">The folder I've given you contains the documents from one of our closed title files. Read everything in it and give me: (1) a list of each document and what it is, in one line each; (2) anything a title agency's checklist would say is missing from a complete file; (3) every date or deadline these documents created while the file was open. Do not repeat any Social Security numbers or bank account numbers in your answer. Save the result as a Word document called "File Review" in the same folder.</pre>
   </div>
-
-  <h3>The rules, extended for Cowork</h3>
-  <ul>
-    <li>Claude only ever works inside the <strong>Claude Workspace</strong> folder. Never point it at the whole computer or the client drive.</li>
-    <li>Same rule as chat: it can read documents that contain sensitive numbers, but its write-ups never repeat SSNs, account numbers, or wire instructions.</li>
-    <li>It reviews and drafts. A person still checks the work and sends anything that leaves the building.</li>
-  </ul>
 </section>
 
 <section class="phase">
@@ -344,11 +252,11 @@ Walk me through importing this into Airtable so that existing rows update by Fil
   <h2>The guardrails</h2>
   <div class="rules">
     <ul>
-      <li>AI drafts and surfaces. A human decides and sends. Every time.</li>
+      <li>Claude complements Qualia — it never duplicates the production work Qualia's AI already does.</li>
+      <li>AI drafts and advises. A human decides and sends. Every time.</li>
       <li>Never in a chat: SSNs, bank or account numbers, wire instructions.</li>
-      <li>Never anything of value to a referral source — for referrals or reviews. Reviews are asked for honestly, nothing offered.</li>
-      <li>Referral and marketing data stays internal.</li>
-      <li>Before the automated version goes live, run the plan past counsel and the underwriter.</li>
+      <li>Never anything of value to a referral source — for referrals or reviews.</li>
+      <li>On deals: Claude arms the questions; Mike and his advisors make the call. Anything with a wire deadline gets a pause.</li>
     </ul>
   </div>
 </section>
