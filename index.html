@@ -73,14 +73,14 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
     <li>Grab the Claude app on Mike's <strong>phone</strong> too, same login — it follows him to closings and lunches.</li>
   </ul>
 
-  <h3>Connect his email and calendar</h3>
-  <p>First check what Fortis email runs on — open his inbox and look. If it's Gmail / Google Workspace:</p>
+  <h3>Connect his email (Fortis runs Outlook / Microsoft 365)</h3>
   <ul class="check">
-    <li>Open <strong>Settings → Connectors</strong>, add <strong>Gmail</strong>, and approve the Google sign-in (Mike clicks the approvals). Claude can then read and search his mail when asked, in any chat. It can never send — drafts come back to Mike.</li>
-    <li>Add <strong>Google Calendar</strong> the same way. Coffee-meeting asks can then include his real open times, and Claude can add the event once an agent says yes, with Mike's confirm.</li>
-    <li>If Fortis is on Microsoft/Outlook instead: check the Connectors list for an Outlook option; if there isn't one, skip this — every prompt on this page works by pasting instead, and loses little.</li>
+    <li>Open <strong>Settings → Connectors</strong> and add the <strong>Microsoft 365</strong> connector (available on the Pro plan). Sign in with Mike's Fortis work account and approve the access prompts — as the business owner he's likely his own Microsoft admin, and the first connection may ask for that admin consent.</li>
+    <li>What it gives Claude: <strong>read access to his Outlook email</strong> — plus OneDrive, SharePoint, and Teams if Fortis uses them, which means Claude can also read his business documents on request. It reads when asked, in that chat; it does not monitor the inbox in the background, and it cannot send — drafts always come back to Mike.</li>
+    <li>Requirement to know: this works with a business Microsoft 365 account on the company's domain — not a personal @outlook.com mailbox.</li>
+    <li><strong>Calendar caveat:</strong> the connector's coverage is mail, files, and Teams — calendar may not be included. Check what shows once connected; if calendar isn't there, Mike pastes his open times into the coffee-ask prompt (ten seconds) and everything else works the same.</li>
   </ul>
-  <p>These connectors work in the normal chat window — they have nothing to do with Cowork (Phase 7). Note: Claude reads mail only when asked, in that conversation. It does not monitor the inbox in the background.</p>
+  <p>This connector works in the normal chat window — it has nothing to do with Cowork (Phase 7).</p>
 </section>
 
 <section class="phase">
@@ -222,8 +222,8 @@ When Mike asks for one of these by name, use the matching template. Always apply
   <h3>Making the outreach automatic</h3>
   <p>The target is zero-friction, not zero-Mike: everything arrives prepared; nothing goes out as him. With the connectors from Phase 1 on, the Monday routine looks like this:</p>
   <ul>
-    <li><strong>Gmail connector:</strong> the re-engage and follow-up drafts pull from the real email history — no pasting.</li>
-    <li><strong>Calendar connector:</strong> coffee asks go out with his actual open times, and the event lands on the calendar when the agent says yes (Mike confirms each).</li>
+    <li><strong>Microsoft 365 connector:</strong> the re-engage and follow-up drafts pull from the real Outlook history — no pasting.</li>
+    <li><strong>Times in the ask:</strong> if calendar access shows up in the connector, coffee asks go out with his real open slots; if not, Mike pastes his availability into the prompt — ten seconds either way.</li>
     <li><strong>The Monday trigger:</strong> look in the app for a scheduled-tasks feature — if his version has it, schedule "plan my outreach" for Monday 8 a.m. so the five drafts are waiting with his coffee. If not, a phone reminder that opens the app does the same job: the prompt is one library trigger away ("plan my outreach").</li>
     <li><strong>Never automated:</strong> the send. Ten minutes on Monday — read, tweak, send five messages — and the relationship pipeline stays warm all year.</li>
   </ul>
