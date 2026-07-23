@@ -66,7 +66,7 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
   <span class="phase-tag">Phase 1 · Account &amp; app<span class="time">~20 min</span></span>
   <h2>Set up the account and the app</h2>
   <ul class="check">
-    <li>Go to <strong>claude.ai</strong>, create an account with Michael's work email, and upgrade to the <strong>Pro plan</strong>.</li>
+    <li>Go to <strong>claude.ai</strong>, create an account, and upgrade to the <strong>Pro plan</strong>. (Done 7/22–7/23 — Michael signed up with his personal Gmail address; that's fine, it's just the login.)</li>
     <li>Open <strong>Settings → Privacy</strong> and make sure the option to use chats for model training is <strong>turned off</strong>.</li>
     <li>Download the <strong>Claude desktop app</strong> from claude.ai/download, install it, sign in, and pin it to the Dock.</li>
     <li>In the app, click <strong>Projects → New Project</strong> and name it <strong>Fortis Command Center</strong>. Every work chat happens inside this Project.</li>
@@ -74,6 +74,7 @@ footer{border-top:1px solid var(--line);margin-top:3rem;padding-top:1rem;font-si
   </ul>
 
   <h3>Connect his email (Fortis runs Outlook / Microsoft 365)</h3>
+  <div class="note"><strong>Status 7/23:</strong> Michael's personal <strong>Gmail</strong> connector is connected; the <strong>Microsoft 365</strong> (Fortis business) connection is waiting on admin approval. Until it clears: Gmail = personal only, so run work prompts by pasting the thread in. The Project instructions below tell Claude which account is which.</div>
   <ul class="check">
     <li>Open <strong>Settings → Connectors</strong> and add the <strong>Microsoft 365</strong> connector (available on the Pro plan). Sign in with Michael's Fortis work account and approve the access prompts — as the business owner he's likely his own Microsoft admin, and the first connection may ask for that admin consent.</li>
     <li>What it gives Claude: <strong>read access to his Outlook email</strong> — plus OneDrive, SharePoint, and Teams if Fortis uses them, which means Claude can also read his business documents on request. It reads when asked, in that chat; it does not monitor the inbox in the background, and it cannot send — drafts always come back to Michael.</li>
@@ -110,6 +111,8 @@ Hard rules, always:
 4. Never ask for or repeat Social Security numbers, bank account numbers, or wire instructions. If they appear in pasted material, do not repeat them back.
 5. On investments: you are not a financial advisor. Help Michael verify claims, spot red flags, and build question lists — never tell him to invest or not invest.
 6. Be concise, specific, and plain-spoken. If data is missing, say so rather than guessing.
+
+Email accounts: Michael has two connected. Gmail is his PERSONAL account; Outlook / Microsoft 365 is his FORTIS BUSINESS account. For any work task — reading sent mail, summarizing threads, drafting replies, agent follow-ups, the voice guide — use the Outlook/business account. Only touch Gmail if Michael explicitly asks for his personal email. If the Outlook connector is not yet available, say so and ask him to paste the thread rather than silently pulling from Gmail.
 
 Voice for drafts: follow the "Michael's Voice" guide in this project's knowledge for anything Michael sends under his own name. Team drafts signed "Fortis Title &amp; Escrow" stay in a standard professional voice.</pre>
   </div>
